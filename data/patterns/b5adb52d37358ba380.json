@@ -1,0 +1,40 @@
+{
+  "domain": "",
+  "pattern": "/online-banking/{slug}",
+  "type": "path",
+  "confidence": 0.97,
+  "detected_values": [
+    "privatbank",
+    "sberbank-online",
+    "smp-bank",
+    "tinkoff-internet-banking"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "privatbank",
+    "sberbank-online",
+    "smp-bank",
+    "tinkoff-internet-banking"
+  ],
+  "examples": [
+    "/online-banking/privatbank",
+    "/online-banking/sberbank-online",
+    "/online-banking/smp-bank",
+    "/online-banking/tinkoff-internet-banking"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "b5adb52d37358ba380",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T02:32:45Z"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "9608749b3d20ab9b90",
+  "job_id": "9608749b3d20ab9b90",
+  "url": "https://www.okchanger.com/exchangers",
+  "saved_at": "2026-06-01T00:45:27Z",
+  "saved_unix": 1780274727.8042188,
+  "pages": 1,
+  "current_url": null,
+  "queue": [],
+  "queue_size": 0,
+  "urls_seen": [
+    "https://www.okchanger.com/exchangers"
+  ],
+  "dedupe_seen": [
+    "d16c65e28cf6ccbf3b037226"
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "977aed4541fa2e0bbf",
+        "url": "https://www.okchanger.com/exchangers",
+        "depth": 0,
+        "type": "exchange/crypto service hub",
+        "source": "seed",
+        "pattern_match": false,
+        "status_code": 0,
+        "confidence": 0.65,
+        "content_type": "",
+        "discovered_at": "2026-06-01T00:45:27Z"
+      }
+    ],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [
+    {
+      "url": "https://www.okchanger.com/exchangers",
+      "reason": "fetch_empty_or_error",
+      "status": 0,
+      "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://www.okchanger.com/exchangers\", waiting until \"networkidle\"\n",
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T00:45:27Z"
+}

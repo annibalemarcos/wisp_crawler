@@ -1,0 +1,20 @@
+{
+  "domain": "private.auth.alfabank.ru",
+  "pattern": "/passport/cerberus-mini-blue/dashboard-blue/phone_auth?scope={scope}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "openid newclick-web"
+  ],
+  "suggested_values": [
+    "openid newclick-web"
+  ],
+  "examples": [
+    "/passport/cerberus-mini-blue/dashboard-blue/phone_auth?scope=openid newclick-web"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "928653dbcf5f417b0f",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T02:32:45Z"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "883ea2544fc706f191",
+  "job_id": "883ea2544fc706f191",
+  "url": "https://dappradar.com/",
+  "saved_at": "2026-06-01T03:47:10Z",
+  "saved_unix": 1780285630.031631,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://dappradar.com/",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "e444f52af4cedc8587c6869e"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T03:47:13Z"
+}

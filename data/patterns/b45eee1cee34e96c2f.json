@@ -1,0 +1,20 @@
+{
+  "domain": "exmo.me",
+  "pattern": "/?ref={ref}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "162888"
+  ],
+  "suggested_values": [
+    "162888"
+  ],
+  "examples": [
+    "/?ref=162888"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "b45eee1cee34e96c2f",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

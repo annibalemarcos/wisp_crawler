@@ -1,0 +1,20 @@
+{
+  "domain": "www.allcoin.com",
+  "pattern": "/?ref={ref}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "155973"
+  ],
+  "suggested_values": [
+    "155973"
+  ],
+  "examples": [
+    "/?ref=155973"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "4d807865ba862e9161",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

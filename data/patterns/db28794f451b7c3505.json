@@ -1,0 +1,20 @@
+{
+  "domain": "24atm.net",
+  "pattern": "/ru?rid={rid}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "13"
+  ],
+  "suggested_values": [
+    "13"
+  ],
+  "examples": [
+    "/ru?rid=13"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "db28794f451b7c3505",
+  "job_id": "f24761d0a1c0509bcc",
+  "updated_at": "2026-06-01T02:01:32Z"
+}

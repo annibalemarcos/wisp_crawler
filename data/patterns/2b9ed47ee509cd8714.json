@@ -1,0 +1,20 @@
+{
+  "domain": "www.crxzone.com",
+  "pattern": "/?affiliate={affiliate}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "71630"
+  ],
+  "suggested_values": [
+    "71630"
+  ],
+  "examples": [
+    "/?affiliate=71630"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "2b9ed47ee509cd8714",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WISP — Web Intelligence Scraper Platform</title>
+  <link rel="stylesheet" href="/static/css/app.css" />
+</head>
+<body>
+  <div id="toast"></div>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="orb"></span>
+        <div><b>WISP</b><small>Web Intelligence Platform</small></div>
+      </div>
+      <nav class="sideNav">
+        <button data-view="run" class="active"><span>🚀</span> Run Job</button>
+        <button data-view="live"><span>📡</span> Live Events</button>
+        <button data-view="jobs"><span>📋</span> Jobs</button>
+        <button data-view="graph"><span>🕸️</span> Graph Explorer</button>
+        <button data-view="patterns"><span>🧩</span> Pattern Intelligence</button>
+        <button data-view="seeds"><span>🌱</span> Pattern Seeds</button>
+        <button data-view="results"><span>🔗</span> Results</button>
+        <button data-view="bulk"><span>⚡</span> Bulk Run</button>
+        <button data-view="external"><span>🛰️</span> External Report</button>
+        <button data-view="skipped"><span>🧭</span> Why Not Crawled</button>
+        <button data-view="patternlab"><span>🧪</span> Pattern Lab</button>
+      </nav>
+      <div class="sidebarFoot"><span class="dot"></span> API :5220<br><small id="clock"></small></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div><h1 id="viewTitle">Run Job</h1><p id="viewSub">Start focused crawls, then expand intelligently.</p></div>
+        <div class="topActions"><button id="refreshBtn">↻ Refresh</button><button id="helpBtn" class="help">?</button></div>
+      </header>
+
+      <section id="stats" class="stats"></section>
+
+      <section id="run" class="view active">
+        <div class="grid two">
+          <div class="card heroCard">
+            <div class="eyebrow">Launch Console</div>
+            <h2>Explora. Aprende. Prevê. Valida.</h2>
+            <p>Comece com um crawl limpo. Depois use patterns, seeds e probes como bisturi — não como marreta.</p>
+            <label>Target URL<input id="runUrl" placeholder="https://example.com/directory" autocomplete="off"></label>
+            <div class="grid three compact">
+              <label>Depth<select id="runDepth"><option value="1">1 — shallow</option><option value="2" selected>2 — normal</option><option value="3">3 — deep</option><option value="4">4 — deeper</option><option value="6">6 — aggressive</option><option value="10">10 — max intel</option></select></label>
+              <label>Max Pages<select id="runPages"><option>50</option><option>100</option><option selected>200</option><option>500</option><option>1000</option><option>5000</option></select></label>
+              <label>Preset<select id="runPreset"><option value="safe">Safe discovery</option><option value="balanced" selected>Balanced intel</option><option value="deep">Deep intelligence</option><option value="custom">Custom</option></select></label>
+            </div>
+            <div class="optionGrid">
+              <label class="toggle"><input type="checkbox" id="optPattern" checked><span>Pattern Expansion</span><small>expand URL templates</small></label>
+              <label class="toggle"><input type="checkbox" id="optRoutes" checked><span>Route Inference</span><small>guess likely routes</small></label>
+              <label class="toggle"><input type="checkbox" id="optProbe" checked><span>Soft Probe</span><small>validate softly</small></label>
+              <label class="toggle"><input type="checkbox" id="optSeeds" checked><span>Use Seeds</span><small>manual patterns</small></label>
+              <label class="toggle"><input type="checkbox" id="optMaskedOutbound"><span>Follow Masked Outbound</span><small>resolve /away redirects and save external domains</small></label>
+              <label class="toggle"><input type="checkbox" id="optMaskedAggressive"><span>Aggressive External Resolver</span><small>scan attributes/scripts + wait redirects harder</small></label>
+              <label class="toggle"><input type="checkbox" id="optPagination"><span>Auto Pagination</span><small>click next / DataTables pages and collect rows</small></label>
+              <label>External Limit<input id="optMaskedLimit" type="number" min="10" max="2000" value="500"></label>
+              <label>Pagination Limit<input id="optPaginationLimit" type="number" min="1" max="250" value="25"></label>
+            </div>
+            <div class="actions stickyActions"><button class="primary big" id="startBtn">▶ Start Crawl</button><button id="clearRunBtn">Clear</button></div>
+          </div>
+          <div class="card">
+            <div class="splitTitle"><h2>Live Events</h2><span class="pill" id="liveState">idle</span></div>
+            <div id="liveFeed" class="liveFeed"><div class="empty">Waiting for crawler events…</div></div>
+            <div class="quickHints">
+              <button data-preset="safe">Safe: depth 2 / 100</button>
+              <button data-preset="balanced">Balanced: depth 3 / 200</button>
+              <button data-preset="deep">Deep: depth 6 / 1000</button>
+            </div>
+          </div>
+
+          <div class="card activeJobsCard">
+            <div class="splitTitle"><h2>Running Control</h2><div class="toolbar"><button onclick="loadJobs()">Refresh</button></div></div>
+            <div id="runningJobsPanel" class="tableWrap"><div class="empty">No running jobs yet.</div></div>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="live" class="view">
+        <div class="card liveConsoleCard">
+          <div class="splitTitle">
+            <div>
+              <h2>Live Events Console</h2>
+              <p class="muted">Log sujo do crawler: tudo que o backend cospe, filtrável, exportável e sem maquiagem.</p>
+            </div>
+            <div class="toolbar">
+              <span class="pill" id="liveConsoleState">idle</span>
+              <button onclick="connectLive(true)">Reconnect</button>
+              <button onclick="clearLiveConsole()">Clear View</button>
+            </div>
+          </div>
+          <div class="liveToolbar">
+            <select id="liveJobSelect"><option value="">all jobs</option></select>
+            <select id="liveTypeFilter"><option value="">all event types</option></select>
+            <input id="liveSearch" placeholder="search raw log, URL, job id, error…">
+            <label class="miniToggle"><input type="checkbox" id="liveRawToggle" checked> raw</label>
+            <label class="miniToggle"><input type="checkbox" id="liveAutoscroll" checked> auto-scroll</label>
+            <label class="miniToggle"><input type="checkbox" id="livePause"> pause view</label>
+            <select id="liveLimit">
+              <option value="250">250 rows</option>
+              <option value="500" selected>500 rows</option>
+              <option value="1000">1000 rows</option>
+              <option value="2500">2500 rows</option>
+            </select>
+          </div>
+          <div id="liveEventStats" class="graphStats liveStats"></div>
+          <div class="actions">
+            <button onclick="exportData('live_events', filteredLiveEvents(), 'json')">JSON</button>
+            <button onclick="exportData('live_events', rowsToCsv(filteredLiveEvents()), 'csv')">CSV</button>
+            <button onclick="exportData('live_events', renderLiveMarkdown(), 'md')">MD</button>
+            <button onclick="exportSection('Live Events', renderLiveHTML(), 'html')">HTML</button>
+            <button onclick="exportSection('Live Events', renderLiveHTML(), 'pdf')">PDF</button>
+          </div>
+          <div class="liveLogShell">
+            <div id="liveLog" class="liveLog"><div class="empty">Waiting for crawler telemetry…</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="jobs" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>Jobs</h2><div class="toolbar"><input id="jobSearch" placeholder="filter URL or id"><select id="jobStatus"><option value="">all status</option><option>running</option><option>completed</option><option>failed</option><option>queued</option><option>paused</option><option>pause_requested</option><option>cancelled</option><option>restarting</option></select><button onclick="loadJobs()">Refresh</button><button onclick="exportSection('Jobs', renderJobsText(), 'txt')">TXT</button><button onclick="exportSection('Jobs', renderJobsHTML(), 'html')">HTML</button><button onclick="exportSection('Jobs', renderJobsHTML(), 'pdf')">PDF</button></div></div>
+          <div id="jobsList" class="tableWrap"></div>
+        </div>
+      </section>
+
+      <section id="graph" class="view">
+        <div class="card graphShell">
+          <div class="splitTitle"><h2>Graph Explorer</h2><div class="toolbar"><select id="graphJobSelect"><option value="">All jobs — merged graph</option></select><select id="sourceFilter"><option value="">all sources</option><option>crawl</option><option>pattern</option><option>seed</option><option>inferred</option><option>api</option><option>external</option></select><input id="depthFilter" type="number" placeholder="depth ≤"><input id="graphSearch" placeholder="search URL"><select id="graphLayout"><option value="radial">radial</option><option value="depth">rings by depth</option><option value="source">cluster by source</option></select><label class="miniToggle"><input type="checkbox" id="graphLabels"> labels</label><button id="fitGraphBtn">Fit</button></div></div>
+          <div class="graphStats" id="graphStats"></div>
+          <div class="graphArea"><canvas id="graphCanvas" width="1300" height="680"></canvas><aside id="nodePanel" class="nodePanel"></aside></div>
+          <div class="actions"><button onclick="exportSection('Graph', renderGraphText(), 'txt')">Export TXT</button><button onclick="exportSection('Graph', renderGraphHTML(), 'html')">Export HTML</button><button onclick="exportSection('Graph', renderGraphHTML(), 'pdf')">Export PDF</button><button onclick="exportData('graph', state.graphView, 'json')">Export JSON</button><button onclick="exportData('graph', renderGraphML(), 'graphml')">GraphML</button><button onclick="exportData('graph', renderGEXF(), 'gexf')">GEXF</button><button onclick="exportData('graph', renderGraphMarkdown(), 'md')">MD</button></div>
+        </div>
+      </section>
+
+      <section id="patterns" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>Pattern Intelligence</h2><div class="toolbar"><input id="patternSearch" placeholder="search pattern/domain/value"><input id="patternMinConf" type="number" min="0" max="100" placeholder="conf ≥ %"><button id="suggestBtn">Suggest from URLs</button><button onclick="exportSection('Patterns', renderPatternsHTML(), 'html')">HTML</button><button onclick="exportSection('Patterns', renderPatternsText(), 'txt')">TXT</button><button onclick="exportSection('Patterns', renderPatternsHTML(), 'pdf')">PDF</button></div></div>
+          <div class="hintBox">Chips de Suggested Values agora quebram linha, truncam bonito e não explodem o card. URL gigante fica domada na coleira.</div>
+          <div id="patternsList" class="cards patternGrid"></div>
+        </div>
+      </section>
+
+      <section id="seeds" class="view">
+        <div class="grid two">
+          <div class="card"><h2>Create Pattern Seed</h2><div class="grid two compact"><input id="seedDomain" placeholder="domain, e.g. okchanger.com"><input id="seedPattern" placeholder="pattern, e.g. /exchangers/{slug}"><input id="seedValues" placeholder="values comma-separated"><input id="seedLang" placeholder="language variants: en,pt,es"><input id="seedPriority" type="number" placeholder="priority 0-100" value="80"><select id="seedEnabled"><option value="true">enabled</option><option value="false">disabled</option></select></div><textarea id="seedNotes" placeholder="notes"></textarea><button class="primary" id="createSeedBtn">+ Create Seed</button></div>
+          <div class="card"><div class="splitTitle"><h2>Saved Seeds</h2><div class="toolbar"><input id="seedSearch" placeholder="filter seeds"><button onclick="exportSection('Seeds', renderSeedsHTML(), 'html')">HTML</button><button onclick="exportSection('Seeds', renderSeedsText(), 'txt')">TXT</button><button onclick="exportSection('Seeds', renderSeedsHTML(), 'pdf')">PDF</button></div></div><div id="seedsList" class="cards seedsGrid"></div></div>
+        </div>
+      </section>
+
+      <section id="results" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>Results</h2><div class="toolbar"><select id="resultsJobSelect"><option value="">All jobs</option></select><select id="resultsSource"><option value="">all sources</option><option>crawl</option><option>pattern</option><option>seed</option><option>inferred</option><option>api</option><option>external</option></select><input id="resultsSearch" placeholder="filter URLs"><button onclick="loadResults()">Load</button><button onclick="exportSection('Results', renderResultsText(), 'txt')">TXT</button><button onclick="exportSection('Results', renderResultsHTML(), 'html')">HTML</button><button onclick="exportSection('Results', renderResultsHTML(), 'pdf')">PDF</button><button onclick="exportData('results', filteredResults(), 'json')">JSON</button><button onclick="exportData('results', rowsToCsv(filteredResults()), 'csv')">CSV</button><button onclick="exportData('results', renderResultsMarkdown(), 'md')">MD</button></div></div>
+          <div id="resultsList" class="tableWrap"></div>
+        </div>
+      </section>
+
+      <section id="bulk" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>Bulk Run</h2><span class="pill">batch launcher</span></div>
+          <textarea id="bulkUrls" placeholder="One URL per line"></textarea>
+          <div class="grid four compact"><label>Depth<select id="bulkDepth"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>6</option></select></label><label>Max Pages<select id="bulkPages"><option>30</option><option selected>100</option><option>200</option><option>500</option></select></label><label class="toggle inline"><input id="bulkPattern" type="checkbox" checked><span>Patterns</span></label><label class="toggle inline"><input id="bulkProbe" type="checkbox"><span>Soft Probe</span></label><label class="toggle inline"><input id="bulkMaskedOutbound" type="checkbox"><span>Follow Masked Outbound</span></label><label class="toggle inline"><input id="bulkMaskedAggressive" type="checkbox"><span>Aggressive Resolver</span></label><label class="toggle inline"><input id="bulkPagination" type="checkbox"><span>Auto Pagination</span></label><label>External Limit<input id="bulkMaskedLimit" type="number" min="10" max="2000" value="500"></label><label>Pagination Limit<input id="bulkPaginationLimit" type="number" min="1" max="250" value="25"></label></div>
+          <div class="actions"><button class="primary" id="bulkBtn">⚡ Launch Bulk Crawl</button><button onclick="document.getElementById('bulkUrls').value=''">Clear</button></div>
+          <div id="bulkOut" class="cards"></div>
+        </div>
+      </section>
+
+
+      <section id="external" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>External Resolver Report</h2><div class="toolbar"><select id="externalJobSelect"><option value="">All jobs</option></select><button onclick="loadExternalReport()">Load</button><button onclick="exportData('external_report', state.externalReport, 'json')">JSON</button><button onclick="exportData('external_report', rowsToCsv(flatExternalRows()), 'csv')">CSV</button><button onclick="exportData('external_report', renderExternalMarkdown(), 'md')">MD</button><button onclick="exportSection('External Report', renderExternalHTML(), 'html')">HTML</button><button onclick="exportSection('External Report', renderExternalHTML(), 'pdf')">PDF</button></div></div>
+          <div id="externalStats" class="graphStats"></div>
+          <div id="externalReport" class="tableWrap"></div>
+        </div>
+      </section>
+
+      <section id="skipped" class="view">
+        <div class="card">
+          <div class="splitTitle"><h2>Why Not Crawled?</h2><div class="toolbar"><select id="skippedJobSelect"><option value="">All jobs</option></select><select id="skipReasonFilter"><option value="">all reasons</option></select><input id="skipSearch" placeholder="filter skipped URLs"><button onclick="loadSkipped()">Load</button><button onclick="exportData('skipped_urls', state.skippedRows, 'json')">JSON</button><button onclick="exportData('skipped_urls', rowsToCsv(filteredSkipped()), 'csv')">CSV</button><button onclick="exportData('skipped_urls', renderSkippedMarkdown(), 'md')">MD</button><button onclick="exportSection('Skipped URLs', renderSkippedHTML(), 'html')">HTML</button><button onclick="exportSection('Skipped URLs', renderSkippedHTML(), 'pdf')">PDF</button></div></div>
+          <div class="hintBox">Mostra por que uma URL ficou fora: domínio externo, duplicada, depth/max pages, probe inválido, erro de fetch ou redirect não resolvido.</div>
+          <div id="skippedList" class="tableWrap"></div>
+        </div>
+      </section>
+
+      <section id="patternlab" class="view">
+        <div class="grid two">
+          <div class="card"><h2>Pattern Lab</h2><p class="muted">Teste templates antes de soltar os cães no mato.</p><label>Domain<input id="labDomain" placeholder="www.okchanger.com"></label><label>Pattern<input id="labPattern" placeholder="/exchangers/{slug}"></label><label>Values<textarea id="labValues" placeholder="binance&#10;kraken&#10;coinbase"></textarea></label><div class="actions"><button class="primary" onclick="patternLabPreview()">Preview URLs</button><button onclick="patternLabProbe()">Soft Probe</button><button onclick="patternLabSeed()">Add as Seed</button></div></div>
+          <div class="card"><div class="splitTitle"><h2>Preview / Probe Results</h2><div class="toolbar"><button onclick="exportData('pattern_lab', state.patternLab, 'json')">JSON</button><button onclick="exportData('pattern_lab', rowsToCsv(state.patternLab.results||[]), 'csv')">CSV</button><button onclick="exportData('pattern_lab', renderPatternLabMarkdown(), 'md')">MD</button></div></div><div id="patternLabOut" class="tableWrap"><div class="empty">No preview yet</div></div></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <dialog id="helpModal" class="modal"><button class="x" onclick="helpModal.close()">×</button><h2>WISP Intelligence Guide</h2><div class="guide"><aside id="guideTabs"></aside><article id="guideBody"></article></div></dialog>
+  <dialog id="confirmModal" class="modal small"><h2 id="confirmTitle"></h2><p id="confirmBody"></p><div class="right"><button onclick="confirmModal.close()">Cancel</button><button id="confirmYes" class="danger">Delete Permanently</button></div></dialog>
+  <dialog id="editPatternModal" class="modal small"><h2>Edit Pattern</h2><input id="editPatternId" type="hidden"><label>Domain<input id="editPatternDomain"></label><label>Pattern<input id="editPatternCode"></label><label>Suggested values<input id="editPatternValues"></label><label>Confidence %<input id="editPatternConf" type="number" min="0" max="100"></label><div class="right"><button onclick="editPatternModal.close()">Cancel</button><button id="savePatternEdit" class="primary">Save</button></div></dialog>
+  <dialog id="rerunModal" class="modal small"><h2>Re-Run Crawl</h2><p id="rerunJob"></p><label>Depth<input id="rerunDepth" type="number" value="6"></label><label>Max Pages<input id="rerunPages" type="number" value="1000"></label><div class="optionGrid"><label class="toggle"><input type="checkbox" id="rrPattern" checked><span>Pattern Expansion</span></label><label class="toggle"><input type="checkbox" id="rrRoutes" checked><span>Route Inference</span></label><label class="toggle"><input type="checkbox" id="rrSeeds" checked><span>Use Seeds</span></label><label class="toggle"><input type="checkbox" id="rrProbe" checked><span>Soft Probe</span></label><label class="toggle"><input type="checkbox" id="rrMaskedOutbound"><span>Follow Masked Outbound</span></label><label class="toggle"><input type="checkbox" id="rrMaskedAggressive"><span>Aggressive External Resolver</span></label><label class="toggle"><input type="checkbox" id="rrPagination"><span>Auto Pagination</span></label><label>External Limit<input id="rrMaskedLimit" type="number" min="10" max="2000" value="500"></label><label>Pagination Limit<input id="rrPaginationLimit" type="number" min="1" max="250" value="25"></label></div><div class="right"><button onclick="rerunModal.close()">Cancel</button><button id="rerunGo" class="primary">Start Deep Crawl</button></div></dialog>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

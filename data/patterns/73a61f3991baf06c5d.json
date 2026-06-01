@@ -1,0 +1,20 @@
+{
+  "domain": "www.etoro.com",
+  "pattern": "/?utm_serial={utm_serial}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "ShortURL_WS_CP"
+  ],
+  "suggested_values": [
+    "ShortURL_WS_CP"
+  ],
+  "examples": [
+    "/?utm_serial=ShortURL_WS_CP"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "73a61f3991baf06c5d",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

@@ -1,0 +1,20 @@
+{
+  "domain": "www.aftermarket.pl",
+  "pattern": "/domena/bitmarket.pl?_track={_track}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "5fb0bcc676e9dee51cb4f34e489c3811"
+  ],
+  "suggested_values": [
+    "5fb0bcc676e9dee51cb4f34e489c3811"
+  ],
+  "examples": [
+    "/domena/bitmarket.pl?_track=5fb0bcc676e9dee51cb4f34e489c3811"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "d4e4a80aa8a63263de",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

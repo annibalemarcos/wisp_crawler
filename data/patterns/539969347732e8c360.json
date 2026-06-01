@@ -1,0 +1,20 @@
+{
+  "domain": "bitok.com",
+  "pattern": "/?referrer={referrer}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "16990"
+  ],
+  "suggested_values": [
+    "16990"
+  ],
+  "examples": [
+    "/?referrer=16990"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "539969347732e8c360",
+  "job_id": "37f21d5c48e2a379e4",
+  "updated_at": "2026-06-01T01:45:14Z"
+}

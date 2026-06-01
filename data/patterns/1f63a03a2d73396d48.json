@@ -1,0 +1,20 @@
+{
+  "domain": "",
+  "pattern": "/account/login?ReturnUrl={ReturnUrl}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "/online-banking/forward-bank"
+  ],
+  "suggested_values": [
+    "/online-banking/forward-bank"
+  ],
+  "examples": [
+    "/account/login?ReturnUrl=/online-banking/forward-bank"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "1f63a03a2d73396d48",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T01:38:21Z"
+}

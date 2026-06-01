@@ -1,0 +1,21 @@
+{
+  "id": "sample_kycnot",
+  "domain": "kycnot.me",
+  "pattern": "/?categories={type}",
+  "values": [
+    "exchange",
+    "swap",
+    "bridge",
+    "dex",
+    "aggregator"
+  ],
+  "language_variants": [
+    "en",
+    "pt",
+    "es"
+  ],
+  "enabled": true,
+  "priority": 80,
+  "notes": "Sample seed for category exploration.",
+  "version": 1
+}

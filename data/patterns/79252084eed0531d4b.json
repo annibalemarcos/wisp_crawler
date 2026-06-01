@@ -1,0 +1,20 @@
+{
+  "domain": "www.epay.com",
+  "pattern": "/?ref={ref}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "598283"
+  ],
+  "suggested_values": [
+    "598283"
+  ],
+  "examples": [
+    "/?ref=598283"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "79252084eed0531d4b",
+  "job_id": "09b43d85fd3d40ca5e",
+  "updated_at": "2026-06-01T01:38:21Z"
+}

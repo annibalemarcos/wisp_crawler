@@ -1,0 +1,20 @@
+{
+  "domain": "private.auth.alfabank.ru",
+  "pattern": "/passport/cerberus-mini-blue/dashboard-blue/phone_auth?redirect_uri={redirect_uri}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "https://web.alfabank.ru/openid/authorize/newclick-web?redirect_to=https___web.alfabank.ru/"
+  ],
+  "suggested_values": [
+    "https://web.alfabank.ru/openid/authorize/newclick-web?redirect_to=https___web.alfabank.ru/"
+  ],
+  "examples": [
+    "/passport/cerberus-mini-blue/dashboard-blue/phone_auth?redirect_uri=https://web.alfabank.ru/openid/authorize/newclick-web?redirect_to=https___web.alfabank.ru/"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "4d585f36b4f7588262",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T02:32:45Z"
+}

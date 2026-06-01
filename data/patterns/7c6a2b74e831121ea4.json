@@ -1,0 +1,20 @@
+{
+  "domain": "portal.paxum.com",
+  "pattern": "/register?affiliateId={affiliateId}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "20220"
+  ],
+  "suggested_values": [
+    "20220"
+  ],
+  "examples": [
+    "/register?affiliateId=20220"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "7c6a2b74e831121ea4",
+  "job_id": "09b43d85fd3d40ca5e",
+  "updated_at": "2026-06-01T01:38:21Z"
+}

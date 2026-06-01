@@ -1,0 +1,57 @@
+{
+  "id": "e2a683b5282b01baf9",
+  "job_id": "e2a683b5282b01baf9",
+  "url": "https://koinfetti.com/",
+  "saved_at": "2026-06-01T03:47:04Z",
+  "saved_unix": 1780285624.2192297,
+  "pages": 1,
+  "current_url": null,
+  "queue": [],
+  "queue_size": 0,
+  "urls_seen": [
+    "https://koinfetti.com/"
+  ],
+  "dedupe_seen": [
+    "7dd436b3ba6152e60a576924"
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "4bde9d86da06e74f7a",
+        "url": "https://koinfetti.com/",
+        "depth": 0,
+        "type": "SaaS",
+        "source": "seed",
+        "pattern_match": false,
+        "status_code": 0,
+        "confidence": 0.65,
+        "content_type": "",
+        "discovered_at": "2026-06-01T03:46:57Z"
+      }
+    ],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [
+    {
+      "url": "https://koinfetti.com/",
+      "reason": "fetch_empty_or_error",
+      "status": 0,
+      "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://koinfetti.com/\", waiting until \"networkidle\"\n",
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T03:47:04Z"
+}

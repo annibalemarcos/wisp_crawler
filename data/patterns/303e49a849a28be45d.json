@@ -1,0 +1,38 @@
+{
+  "domain": "",
+  "pattern": "/{slug}/{slug}",
+  "type": "path",
+  "confidence": 0.61,
+  "detected_values": [
+    "account",
+    "alfa-click",
+    "login",
+    "online-banking"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "account",
+    "online-banking",
+    "alfa-click",
+    "login"
+  ],
+  "examples": [
+    "/account/login?ReturnUrl=%2Fonline-banking%2Fforward-bank",
+    "/online-banking/alfa-click"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "303e49a849a28be45d",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T01:38:21Z"
+}

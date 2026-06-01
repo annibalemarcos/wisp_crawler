@@ -1,0 +1,20 @@
+{
+  "domain": "fonts.googleapis.com",
+  "pattern": "/css?family={family}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "Open Sans:300,400,600,700,800|Shadows Into Light"
+  ],
+  "suggested_values": [
+    "Open Sans:300,400,600,700,800|Shadows Into Light"
+  ],
+  "examples": [
+    "/css?family=Open Sans:300,400,600,700,800|Shadows Into Light"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "7163d416aab25f1670",
+  "job_id": "18df9d21ee0b14dbd1",
+  "updated_at": "2026-06-01T01:38:21Z"
+}

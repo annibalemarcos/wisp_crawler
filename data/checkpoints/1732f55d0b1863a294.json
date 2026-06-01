@@ -1,0 +1,42 @@
+{
+  "id": "1732f55d0b1863a294",
+  "job_id": "1732f55d0b1863a294",
+  "url": "https://cryptoatlas.eu/",
+  "saved_at": "2026-06-01T03:46:49Z",
+  "saved_unix": 1780285609.2783546,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://cryptoatlas.eu/",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "3c441176ff8d74c4e6d94ed3"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T03:46:54Z"
+}

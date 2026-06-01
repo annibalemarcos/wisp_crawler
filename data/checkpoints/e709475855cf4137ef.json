@@ -1,0 +1,57 @@
+{
+  "id": "e709475855cf4137ef",
+  "job_id": "e709475855cf4137ef",
+  "url": "https://cryptoslate.com/",
+  "saved_at": "2026-06-01T03:46:20Z",
+  "saved_unix": 1780285580.02673,
+  "pages": 1,
+  "current_url": null,
+  "queue": [],
+  "queue_size": 0,
+  "urls_seen": [
+    "https://cryptoslate.com/"
+  ],
+  "dedupe_seen": [
+    "ebd8fceffb8ac5a87c9fc657"
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "c5ee809b3a6ef8c737",
+        "url": "https://cryptoslate.com/",
+        "depth": 0,
+        "type": "exchange/crypto service hub",
+        "source": "seed",
+        "pattern_match": false,
+        "status_code": 0,
+        "confidence": 0.65,
+        "content_type": "",
+        "discovered_at": "2026-06-01T03:46:20Z"
+      }
+    ],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [
+    {
+      "url": "https://cryptoslate.com/",
+      "reason": "fetch_empty_or_error",
+      "status": 0,
+      "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://cryptoslate.com/\", waiting until \"networkidle\"\n",
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T03:46:20Z"
+}

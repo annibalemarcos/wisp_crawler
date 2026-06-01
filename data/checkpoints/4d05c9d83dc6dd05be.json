@@ -1,0 +1,57 @@
+{
+  "id": "4d05c9d83dc6dd05be",
+  "job_id": "4d05c9d83dc6dd05be",
+  "url": "https://onchaindeck.cc/",
+  "saved_at": "2026-06-01T03:46:22Z",
+  "saved_unix": 1780285582.1785285,
+  "pages": 1,
+  "current_url": null,
+  "queue": [],
+  "queue_size": 0,
+  "urls_seen": [
+    "https://onchaindeck.cc/"
+  ],
+  "dedupe_seen": [
+    "79ae270d655537dd5d0afa7a"
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "6ee1e51d0209920b63",
+        "url": "https://onchaindeck.cc/",
+        "depth": 0,
+        "type": "SaaS",
+        "source": "seed",
+        "pattern_match": false,
+        "status_code": 0,
+        "confidence": 0.65,
+        "content_type": "",
+        "discovered_at": "2026-06-01T03:46:22Z"
+      }
+    ],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [
+    {
+      "url": "https://onchaindeck.cc/",
+      "reason": "fetch_empty_or_error",
+      "status": 0,
+      "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://onchaindeck.cc/\", waiting until \"networkidle\"\n",
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-01T03:46:22Z"
+}

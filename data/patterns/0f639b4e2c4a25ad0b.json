@@ -1,0 +1,20 @@
+{
+  "domain": "lavapay.com",
+  "pattern": "/?affiliate={affiliate}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "LP629334995"
+  ],
+  "suggested_values": [
+    "LP629334995"
+  ],
+  "examples": [
+    "/?affiliate=LP629334995"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "0f639b4e2c4a25ad0b",
+  "job_id": "09b43d85fd3d40ca5e",
+  "updated_at": "2026-06-01T01:38:21Z"
+}
