@@ -34,7 +34,7 @@ class JsonStore:
     def put(self, item_id: str, data: dict[str, Any]) -> dict[str, Any]:
         with self.lock:
             data.setdefault("id", item_id)
-            data["updated_at"] = data.get("updated_at") or time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+            data["updated_at"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
             self.path(item_id).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
             return data
 

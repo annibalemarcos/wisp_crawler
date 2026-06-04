@@ -1,0 +1,38 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/blog/{slug}/{slug}",
+  "type": "path",
+  "confidence": 0.61,
+  "detected_values": [
+    "cryptodirectories-premium-promotion",
+    "product",
+    "product-category",
+    "promotion"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "product",
+    "product-category",
+    "cryptodirectories-premium-promotion",
+    "promotion"
+  ],
+  "examples": [
+    "/blog/product-category/promotion",
+    "/blog/product/cryptodirectories-premium-promotion"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "f01cedc6dc6e010eeb",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

@@ -63,3 +63,46 @@ This build keeps the existing aggressive external resolver and adds:
 - Pattern Lab: preview a URL pattern, soft-probe generated URLs and save the template as a seed.
 - Extra exports: CSV, JSON, Markdown, GraphML and GEXF in addition to HTML/TXT/PDF where relevant.
 - Auto-resume notice for running jobs in the Live Events panel.
+
+
+## Update: Massive Job + Blacklist Dirs
+
+### Massive Job
+Use the **Massive Job** page to create connected batches from:
+- root URLs, for broad directory discovery;
+- known directory/seed URLs, for precise extraction;
+- connected rows using `label | root_url | seed_url`.
+
+The endpoint is:
+
+```txt
+POST /api/massive-run
+```
+
+Each generated job keeps:
+- `massive_batch_id`
+- `massive_label`
+- `massive_node_type` (`root` or `seed`)
+
+### Blacklist Dirs
+Use **Blacklist Dirs** to prevent crawling noisy paths such as login, account, checkout, legal pages, or any custom directory.
+
+Rules support:
+- `contains`: slash is optional. `login`, `/login`, and `login/` all work.
+- `regex`: use full regex patterns such as `/(login|signin|account)(/|$|\?)`.
+
+Matched URLs are skipped with reason:
+
+```txt
+blacklisted_dir
+```
+
+The endpoints are:
+
+```txt
+GET    /api/blacklist-dirs
+POST   /api/blacklist-dirs
+PUT    /api/blacklist-dirs
+PUT    /api/blacklist-dirs/<id>
+DELETE /api/blacklist-dirs/<id>
+```

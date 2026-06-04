@@ -1,0 +1,38 @@
+{
+  "domain": "github.com",
+  "pattern": "/{slug}/{slug}",
+  "type": "path",
+  "confidence": 0.61,
+  "detected_values": [
+    "carhartl",
+    "jquery-cookie",
+    "lightslider",
+    "sachinchoolur"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "carhartl",
+    "sachinchoolur",
+    "jquery-cookie",
+    "lightslider"
+  ],
+  "examples": [
+    "/carhartl/jquery-cookie",
+    "/sachinchoolur/lightslider"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "ca584f654230d079d4",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

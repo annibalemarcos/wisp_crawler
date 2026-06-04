@@ -33,3 +33,16 @@ button.danger{border-color:rgba(255,107,107,.45);color:var(--red);background:rgb
 .activeJobsCard{margin-top:16px}
 #runningJobsPanel table{min-width:980px}
 .actions button{padding:7px 10px}
+
+/* Config Import/Export + Directory Discovery */
+.bigText{min-height:520px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;line-height:1.35}
+.configPreviewBox{padding:10px}.configPreviewBox h3{margin:14px 12px 8px}.configPreviewBox pre{max-height:220px}
+#discKeywords{min-height:240px}.configPreviewBox table{margin-bottom:14px}.sideNav{max-height:calc(100vh - 140px);overflow:auto}.sideNav button span{width:22px;text-align:center;display:inline-block}.configPreviewBox .urlCell,#discOut .urlCell{max-width:640px}
+
+/* Better data controls */
+.toolbar input,.toolbar select{min-height:38px}.toolbar select[id$='SortDir']{min-width:82px}.toolbar select[id$='Scope']{min-width:110px}.toolbar select[id$='Sort']{min-width:135px}.liveToolbar select[id$='Scope'],.liveToolbar select[id$='Sort']{min-width:120px}.tableWrap .empty{min-height:120px}
+
+/* Sortable table headers */
+th.sortable{cursor:pointer;user-select:none;position:relative;color:#b9d8ff;transition:color .15s, background .15s}
+th.sortable:hover{color:var(--accent);background:rgba(98,244,255,.055)}
+th.sortable.active{color:var(--accent);text-shadow:0 0 14px rgba(98,244,255,.18)}

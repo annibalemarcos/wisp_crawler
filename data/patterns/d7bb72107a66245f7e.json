@@ -1,0 +1,20 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/blog/crypto-digital-marketing-agency?amp;utm_campaign={amp;utm_campaign}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "crypto-digital-marketing-agency"
+  ],
+  "suggested_values": [
+    "crypto-digital-marketing-agency"
+  ],
+  "examples": [
+    "/blog/crypto-digital-marketing-agency?amp;utm_campaign=crypto-digital-marketing-agency"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "d7bb72107a66245f7e",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

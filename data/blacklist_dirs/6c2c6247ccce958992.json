@@ -1,0 +1,11 @@
+{
+  "id": "6c2c6247ccce958992",
+  "pattern": "register",
+  "kind": "contains",
+  "enabled": true,
+  "note": "Common registration page",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

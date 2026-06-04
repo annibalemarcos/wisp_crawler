@@ -1,0 +1,49 @@
+{
+  "domain": "cryptoatlas.eu",
+  "pattern": "/_next/static/{slug}/{slug}",
+  "type": "path",
+  "confidence": 0.93,
+  "detected_values": [
+    "4bd1b696-704dc55da575ac8d.js",
+    "684-03ad07be739f3fe6.js",
+    "c20461ee2437a459.css",
+    "chunks",
+    "css",
+    "main-app-3c11e02d385ccc19.js",
+    "polyfills-42372ed130431b0a.js",
+    "webpack-87e09e7e12c46b34.js"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "chunks",
+    "css",
+    "4bd1b696-704dc55da575ac8d.js",
+    "684-03ad07be739f3fe6.js",
+    "c20461ee2437a459.css",
+    "main-app-3c11e02d385ccc19.js",
+    "polyfills-42372ed130431b0a.js",
+    "webpack-87e09e7e12c46b34.js"
+  ],
+  "examples": [
+    "/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+    "/_next/static/chunks/684-03ad07be739f3fe6.js",
+    "/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+    "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "/_next/static/chunks/webpack-87e09e7e12c46b34.js"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "f3f2bf755c74850f99",
+  "job_id": "992e1316cc4c519574",
+  "updated_at": "2026-06-03T14:36:53Z"
+}

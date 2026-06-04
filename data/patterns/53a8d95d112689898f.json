@@ -1,0 +1,20 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/blog/case-study-how-a-beginner-reseller-earned-1000-per-month-promoting-crypto-press-releases?amp;utm_campaign={amp;utm_campaign}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "case-study-how-a-beginner-reseller-earned-1000-per-month-promoting-crypto-press-releases"
+  ],
+  "suggested_values": [
+    "case-study-how-a-beginner-reseller-earned-1000-per-month-promoting-crypto-press-releases"
+  ],
+  "examples": [
+    "/blog/case-study-how-a-beginner-reseller-earned-1000-per-month-promoting-crypto-press-releases?amp;utm_campaign=case-study-how-a-beginner-reseller-earned-1000-per-month-promoting-crypto-press-releases"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "53a8d95d112689898f",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

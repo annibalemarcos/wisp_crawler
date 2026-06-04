@@ -1,0 +1,11 @@
+{
+  "id": "7d1325fc29d0f38300",
+  "pattern": "about",
+  "kind": "contains",
+  "enabled": true,
+  "note": "About/company info noise",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

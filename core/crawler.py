@@ -20,6 +20,7 @@ from graph.graph_builder import GraphBuilder
 from utils.urls import same_domain, domain_of, canonicalize
 from utils.rate_limit import DomainRateLimiter
 from storage.event_bus import event_bus
+from storage.blacklist_store import list_rules as list_blacklist_rules, explain_match as blacklist_explain_match
 
 COMMON_ROUTES = ["/api/", "/api/v1/", "/api/search", "/api/directory", "/api/explore", "/api/categories", "/search", "/directory", "/explore", "/categories", "/market", "/markets", "/services", "/products", "/sitemap.xml", "/robots.txt"]
 
@@ -44,6 +45,19 @@ class CrawlEngine:
         self.rate = DomainRateLimiter(float(job.get("rate_delay", 0.25)))
         self.use_playwright = bool(job.get("playwright", False)) and async_playwright is not None
         self.options = job.get("options", {})
+        self.use_blacklist_dirs = bool(self.options.get("use_blacklist_dirs", True))
+        self.blacklist_rules = []
+        if self.use_blacklist_dirs:
+            try:
+                self.blacklist_rules = list_blacklist_rules()
+            except Exception:
+                self.blacklist_rules = []
+            # Per-job temporary rules, useful for Massive Job experiments.
+            for row in self.options.get("blacklist_extra", []) or []:
+                if isinstance(row, str):
+                    self.blacklist_rules.append({"pattern": row, "kind": "contains", "enabled": True, "scope": "job"})
+                elif isinstance(row, dict):
+                    self.blacklist_rules.append({**row, "enabled": row.get("enabled", True)})
         self.follow_masked_outbound = bool(self.options.get("follow_masked_outbound", False))
         self.masked_outbound_aggressive = bool(self.options.get("masked_outbound_aggressive", False))
         self.masked_outbound_limit = int(self.options.get("masked_outbound_limit", 500 if self.masked_outbound_aggressive else 120))
@@ -545,6 +559,29 @@ class CrawlEngine:
         except Exception as e:
             return {"url": url, "status": 0, "html": "", "content_type": "", "error": str(e)}
 
+    def blacklist_match(self, url: str, depth: int = 0):
+        """Return blacklist match metadata, but never block the exact root URL.
+
+        Depth-0/root is allowed so a user can intentionally start inside a known directory
+        even if a broad rule would otherwise match that path.
+        """
+        if not self.use_blacklist_dirs:
+            return None
+        try:
+            if canonicalize(url) == canonicalize(self.root):
+                return None
+        except Exception:
+            pass
+        return blacklist_explain_match(url, self.blacklist_rules)
+
+    def should_skip_blacklisted(self, url: str, depth: int = 0, from_url: str = "", source: str = "") -> bool:
+        hit = self.blacklist_match(url, depth)
+        if not hit:
+            return False
+        self.record_skip(url, "blacklisted_dir", from_url=from_url, depth=depth, source=source, rule=hit)
+        event_bus.publish("blacklist_match", {"job_id": self.job.get("id"), "url": url, "depth": depth, "source": source, "rule": hit, "from_url": from_url})
+        return True
+
     def priority(self, url, depth, source):
         u = url.lower(); score = depth * 10
         if source == "pattern": score -= 3
@@ -582,6 +619,9 @@ class CrawlEngine:
                         continue
                     if depth > self.depth:
                         self.record_skip(url, "max_depth_exceeded", depth=depth, max_depth=self.depth, parent=parent)
+                        self._save_checkpoint(pq, pages, url)
+                        continue
+                    if self.should_skip_blacklisted(url, depth, from_url=parent, source=source):
                         self._save_checkpoint(pq, pages, url)
                         continue
                     await self._control_gate(url)
@@ -626,6 +666,8 @@ class CrawlEngine:
                     for l in links:
                         await self._control_gate(l)
                         l = canonicalize(l)
+                        if self.should_skip_blacklisted(l, depth+1, from_url=final_url, source="crawl"):
+                            continue
                         if self.dedupe.add(l):
                             heapq.heappush(pq, (self.priority(l, depth+1, "crawl"), depth+1, l, "crawl", final_url))
                         else:
@@ -633,6 +675,8 @@ class CrawlEngine:
                     if self.options.get("route_inference", True):
                         for route in COMMON_ROUTES:
                             candidate = f"{urlparse(self.root).scheme}://{self.domain}{route}"
+                            if self.should_skip_blacklisted(candidate, depth+1, from_url=final_url, source="inferred"):
+                                continue
                             if self.dedupe.add(candidate):
                                 heapq.heappush(pq, (self.priority(candidate, depth+1, "inferred"), depth+1, candidate, "inferred", final_url))
                             else:
@@ -663,7 +707,10 @@ class CrawlEngine:
             for v in values:
                 await self._control_gate(parent)
                 u = build_url(p["domain"], p["pattern"], v)
-                if not same_domain(self.root, u) or not self.dedupe.add(u): continue
+                if not same_domain(self.root, u): continue
+                if self.should_skip_blacklisted(u, depth+1, from_url=parent, source="pattern"):
+                    continue
+                if not self.dedupe.add(u): continue
                 if self.options.get("soft_probe", True):
                     probe = await soft_probe(session, u)
                     if not probe.get("valid"):
@@ -675,6 +722,8 @@ class CrawlEngine:
         for seed in active_seeds(self.domain):
             for v in seed.get("values", [])[:20]:
                 u = build_url(seed["domain"], seed["pattern"], v)
+                if self.should_skip_blacklisted(u, depth+1, from_url=parent, source="seed"):
+                    continue
                 if self.dedupe.add(u):
                     heapq.heappush(pq, (self.priority(u, depth+1, "seed"), depth+1, u, "seed", parent))
                 else:

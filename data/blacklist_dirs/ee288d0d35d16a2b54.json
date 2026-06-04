@@ -1,0 +1,11 @@
+{
+  "id": "ee288d0d35d16a2b54",
+  "pattern": "dashboard",
+  "kind": "contains",
+  "enabled": true,
+  "note": "Private/account area",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

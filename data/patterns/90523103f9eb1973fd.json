@@ -1,0 +1,20 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/ad/www/delivery/lg.php?cb={cb}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "0f9b6c954a"
+  ],
+  "suggested_values": [
+    "0f9b6c954a"
+  ],
+  "examples": [
+    "/ad/www/delivery/lg.php?cb=0f9b6c954a"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "90523103f9eb1973fd",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

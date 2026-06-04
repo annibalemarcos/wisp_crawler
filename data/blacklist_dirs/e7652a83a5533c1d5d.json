@@ -1,0 +1,11 @@
+{
+  "id": "e7652a83a5533c1d5d",
+  "pattern": "sign-in",
+  "kind": "contains",
+  "enabled": true,
+  "note": "Common login/auth page",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

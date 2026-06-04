@@ -1,0 +1,2993 @@
+{
+  "id": "992e1316cc4c519574",
+  "nodes": [
+    {
+      "id": "2ae70886ba944d1528",
+      "url": "https://cryptoatlas.eu/",
+      "depth": 0,
+      "type": "exchange/crypto service hub",
+      "source": "seed",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "content_type": "text/html; playwright",
+      "discovered_at": "2026-06-03T14:36:15Z"
+    },
+    {
+      "id": "33b03f751bd871ae32",
+      "url": "https://cryptoatlas.eu/categories",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:21Z"
+    },
+    {
+      "id": "afc522f30bd153f08f",
+      "url": "https://cryptoatlas.eu/directory",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:21Z"
+    },
+    {
+      "id": "ac9a9b5f24b8e73dd8",
+      "url": "https://cryptoatlas.eu/market",
+      "depth": 1,
+      "type": "marketplace",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "9cce2d7f9bd6911c5c",
+      "url": "https://cryptoatlas.eu/markets",
+      "depth": 1,
+      "type": "marketplace",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "52f3a23af99d617f9a",
+      "url": "https://cryptoatlas.eu/services",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "3dd3dd446793b6d0b7",
+      "url": "https://cryptoatlas.eu/api/categories",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "c0ab179433f092470e",
+      "url": "https://cryptoatlas.eu/api/directory",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "cba54aae47d56644b5",
+      "url": "https://cryptoatlas.eu/OG.jpg",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "image/jpeg",
+      "discovered_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "2a9c36812a0985ea4c",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:24Z"
+    },
+    {
+      "id": "d73beb83c1f31b9f54",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/684-03ad07be739f3fe6.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:25Z"
+    },
+    {
+      "id": "d0bb4bced00650f383",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/app/layout-a1d0ca55e0826391.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:26Z"
+    },
+    {
+      "id": "005792cf02bd736b5a",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:26Z"
+    },
+    {
+      "id": "58db4dc201beafd55a",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "3bce4f48ebdfc40efb",
+      "url": "https://cryptoatlas.eu/_next/static/chunks/webpack-87e09e7e12c46b34.js",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "application/javascript",
+      "discovered_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "625fa34b4f0e3e28dd",
+      "url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/css",
+      "discovered_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "422737dd65129e7486",
+      "url": "https://cryptoatlas.eu/europe-logo.svg",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "image/svg+xml",
+      "discovered_at": "2026-06-03T14:36:48Z"
+    },
+    {
+      "id": "4cebaa434fd1ea2cd2",
+      "url": "https://cryptoatlas.eu/explore",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:49Z"
+    },
+    {
+      "id": "a927091034364bdc5a",
+      "url": "https://cryptoatlas.eu/favicon.ico",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "image/x-icon",
+      "discovered_at": "2026-06-03T14:36:49Z"
+    },
+    {
+      "id": "ce470270bc7cb98893",
+      "url": "https://cryptoatlas.eu/github-mark-white.svg",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "crawl",
+      "pattern_match": false,
+      "status_code": 200,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "image/svg+xml",
+      "discovered_at": "2026-06-03T14:36:50Z"
+    },
+    {
+      "id": "bbc5cb6226022ce6c6",
+      "url": "https://cryptoatlas.eu/products",
+      "depth": 1,
+      "type": "marketplace",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:50Z"
+    },
+    {
+      "id": "bc13581c7199da7aa6",
+      "url": "https://cryptoatlas.eu/robots.txt",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "5dcab6852545787cf1",
+      "url": "https://cryptoatlas.eu/search",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "7f737cdb96ed71793d",
+      "url": "https://cryptoatlas.eu/sitemap.xml",
+      "depth": 1,
+      "type": "exchange/crypto service hub",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "8bcf473ec50438084e",
+      "url": "https://cryptoatlas.eu/api",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "6c68702e30ab58d56b",
+      "url": "https://cryptoatlas.eu/api/explore",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "9ad03ced7fb63ef7df",
+      "url": "https://cryptoatlas.eu/api/search",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "3befb571125e44378e",
+      "url": "https://cryptoatlas.eu/api/v1",
+      "depth": 1,
+      "type": "API-first service",
+      "source": "inferred",
+      "pattern_match": false,
+      "status_code": 404,
+      "confidence": 0.65,
+      "parent": "https://cryptoatlas.eu/",
+      "content_type": "text/html; charset=iso-8859-1",
+      "discovered_at": "2026-06-03T14:36:52Z"
+    }
+  ],
+  "edges": [
+    {
+      "id": "a2bae1b8c89e247978",
+      "from": "2ae70886ba944d1528",
+      "to": "33b03f751bd871ae32",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:21Z"
+    },
+    {
+      "id": "9b19d77d0b3078aa02",
+      "from": "2ae70886ba944d1528",
+      "to": "afc522f30bd153f08f",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:21Z"
+    },
+    {
+      "id": "a0ddc71ec3a00ec3ec",
+      "from": "2ae70886ba944d1528",
+      "to": "ac9a9b5f24b8e73dd8",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "99b87f76c08258ac53",
+      "from": "2ae70886ba944d1528",
+      "to": "9cce2d7f9bd6911c5c",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "047de262bf8a28ed84",
+      "from": "2ae70886ba944d1528",
+      "to": "52f3a23af99d617f9a",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:22Z"
+    },
+    {
+      "id": "9f67e21da70b998dcb",
+      "from": "2ae70886ba944d1528",
+      "to": "3dd3dd446793b6d0b7",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "59ae431deb3afa7701",
+      "from": "2ae70886ba944d1528",
+      "to": "c0ab179433f092470e",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "cb9679c2ecda83c10a",
+      "from": "2ae70886ba944d1528",
+      "to": "cba54aae47d56644b5",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:23Z"
+    },
+    {
+      "id": "e53ac0c7652d8a8c31",
+      "from": "2ae70886ba944d1528",
+      "to": "2a9c36812a0985ea4c",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:24Z"
+    },
+    {
+      "id": "4ae5720820246b9213",
+      "from": "2ae70886ba944d1528",
+      "to": "d73beb83c1f31b9f54",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:25Z"
+    },
+    {
+      "id": "01c72867bc27534009",
+      "from": "2ae70886ba944d1528",
+      "to": "d0bb4bced00650f383",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:26Z"
+    },
+    {
+      "id": "3c5be856bd22996252",
+      "from": "2ae70886ba944d1528",
+      "to": "005792cf02bd736b5a",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:26Z"
+    },
+    {
+      "id": "e6b551c2120aa8f6ae",
+      "from": "2ae70886ba944d1528",
+      "to": "58db4dc201beafd55a",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "29a5d640b2ba1a16b7",
+      "from": "2ae70886ba944d1528",
+      "to": "3bce4f48ebdfc40efb",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "01178fb818f6eb23c3",
+      "from": "2ae70886ba944d1528",
+      "to": "625fa34b4f0e3e28dd",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:27Z"
+    },
+    {
+      "id": "da9cf29ad0ce8c1461",
+      "from": "2ae70886ba944d1528",
+      "to": "422737dd65129e7486",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:48Z"
+    },
+    {
+      "id": "be8760a9fb519d1435",
+      "from": "2ae70886ba944d1528",
+      "to": "4cebaa434fd1ea2cd2",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:49Z"
+    },
+    {
+      "id": "138575ec9d6bd9ddc5",
+      "from": "2ae70886ba944d1528",
+      "to": "a927091034364bdc5a",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:49Z"
+    },
+    {
+      "id": "4e6889c7a5d023082c",
+      "from": "2ae70886ba944d1528",
+      "to": "ce470270bc7cb98893",
+      "source": "crawl",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:50Z"
+    },
+    {
+      "id": "e94f2abf13d53c826a",
+      "from": "2ae70886ba944d1528",
+      "to": "bbc5cb6226022ce6c6",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:50Z"
+    },
+    {
+      "id": "c1c1c4f39059e43c87",
+      "from": "2ae70886ba944d1528",
+      "to": "bc13581c7199da7aa6",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "92905ff6e6b50d6acf",
+      "from": "2ae70886ba944d1528",
+      "to": "5dcab6852545787cf1",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "65665aa6cbd5ea96e3",
+      "from": "2ae70886ba944d1528",
+      "to": "7f737cdb96ed71793d",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:51Z"
+    },
+    {
+      "id": "824c9deb96ffb0c774",
+      "from": "2ae70886ba944d1528",
+      "to": "8bcf473ec50438084e",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "5b63e4fae4c4ad5c62",
+      "from": "2ae70886ba944d1528",
+      "to": "6c68702e30ab58d56b",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "cd248a2660d9316d8e",
+      "from": "2ae70886ba944d1528",
+      "to": "9ad03ced7fb63ef7df",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:52Z"
+    },
+    {
+      "id": "8c3c2af2d3ad50e35b",
+      "from": "2ae70886ba944d1528",
+      "to": "3befb571125e44378e",
+      "source": "inferred",
+      "relationship": "links_to",
+      "created_at": "2026-06-03T14:36:52Z"
+    }
+  ],
+  "job_id": "992e1316cc4c519574",
+  "skipped": [
+    {
+      "url": "http://www.w3.org/2000/svg",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://3commas.io/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://blockchain-research-lab.org/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://crypto.com/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://crypto.com/cards",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://cryptoatlas.goatcounter.com/count",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://gc.zgo.at/count.js",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://github.com/kryptobesteuern/crypto-atlas",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://github.com/kryptobesteuern/crypto-atlas/issues/new?template=suggest-service.yml",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://hacken.io/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://krypto-besteuern.de/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://nexo.io/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://northerndata.de/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://trezor.io/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.bitcoin.de/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.bitpanda.com/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.bitstamp.net/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.chainalysis.com/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.fs-blockchain.de/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2F3commas.io",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fblockchain-research-lab.org",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fcrypto.com",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fhacken.io",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fkrypto-besteuern.de",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fnexo.io",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fnortherndata.de",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Ftrezor.io",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitcoin.de",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitpanda.com",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitstamp.net",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.chainalysis.com",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.fs-blockchain.de",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.ledger.com",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.sandbox.game",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2F3commas.io&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fblockchain-research-lab.org&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fcrypto.com&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fhacken.io&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fkrypto-besteuern.de&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fnexo.io&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fnortherndata.de&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Ftrezor.io&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitcoin.de&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitpanda.com&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitstamp.net&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.chainalysis.com&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.fs-blockchain.de&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.ledger.com&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.sandbox.game&sz=32",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.ledger.com/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.linkedin.com/in/markusbegerow",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://www.sandbox.game/",
+      "reason": "external_domain_not_crawled",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://cryptoatlas.eu/",
+      "reason": "duplicate_url",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 0
+    },
+    {
+      "url": "https://cryptoatlas.eu/privacy",
+      "reason": "blacklisted_dir",
+      "from_url": "https://cryptoatlas.eu/",
+      "depth": 1,
+      "source": "crawl",
+      "rule": {
+        "rule_id": "3dedd32be81baaf8b9",
+        "pattern": "privacy",
+        "kind": "contains",
+        "note": "Legal noise"
+      }
+    },
+    {
+      "url": "https://cryptoatlas.eu/categories",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/directory",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/market",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/markets",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/services",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/categories",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/directory",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/OG.jpg",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/684-03ad07be739f3fe6.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/app/layout-a1d0ca55e0826391.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/chunks/webpack-87e09e7e12c46b34.js",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/v1/",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/search",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/directory",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/explore",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/categories",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/search",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/directory",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/explore",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/categories",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/market",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/markets",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/services",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/products",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/sitemap.xml",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/robots.txt",
+      "reason": "duplicate_inferred_route",
+      "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/ai",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "ai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/fintech",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "fintech",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/crypto",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "crypto",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/health",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "health",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/openai",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "openai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/stripe",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "stripe",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/binance",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "binance",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/kraken",
+      "reason": "soft_probe_invalid",
+      "pattern": "/{slug}",
+      "value": "kraken",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/ai",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "ai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/fintech",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "fintech",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/crypto",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "crypto",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/health",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "health",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/openai",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "openai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/stripe",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "stripe",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/binance",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "binance",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/kraken",
+      "reason": "soft_probe_invalid",
+      "pattern": "/api/{slug}",
+      "value": "kraken",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/ai/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "ai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/fintech/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "fintech",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/crypto/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "crypto",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/health/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "health",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/openai/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "openai",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/stripe/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "stripe",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/binance/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "binance",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/_next/static/kraken/{slug}",
+      "reason": "soft_probe_invalid",
+      "pattern": "/_next/static/{slug}/{slug}",
+      "value": "kraken",
+      "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+    },
+    {
+      "url": "https://cryptoatlas.eu/europe-logo.svg",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/explore",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/favicon.ico",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/github-mark-white.svg",
+      "reason": "fetch_empty_or_error",
+      "status": 200,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/products",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/robots.txt",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/search",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/sitemap.xml",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/explore",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/search",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    },
+    {
+      "url": "https://cryptoatlas.eu/api/v1",
+      "reason": "fetch_empty_or_error",
+      "status": 404,
+      "error": null,
+      "depth": 1
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [
+      {
+        "url": "https://cryptoatlas.eu/",
+        "steps": 0,
+        "links_found": 2
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "steps": 0,
+        "links_found": 0
+      }
+    ],
+    "links_found": 2,
+    "errors": []
+  },
+  "checkpoint": {
+    "id": "992e1316cc4c519574",
+    "job_id": "992e1316cc4c519574",
+    "url": "https://cryptoatlas.eu/",
+    "saved_at": "2026-06-03T14:36:53Z",
+    "saved_unix": 1780497413.0580351,
+    "pages": 28,
+    "current_url": null,
+    "queue": [],
+    "queue_size": 0,
+    "urls_seen": [
+      "https://cryptoatlas.eu/",
+      "https://cryptoatlas.eu/categories",
+      "https://cryptoatlas.eu/directory",
+      "https://cryptoatlas.eu/market",
+      "https://cryptoatlas.eu/markets",
+      "https://cryptoatlas.eu/services",
+      "https://cryptoatlas.eu/api/categories",
+      "https://cryptoatlas.eu/api/directory",
+      "https://cryptoatlas.eu/OG.jpg",
+      "https://cryptoatlas.eu/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+      "https://cryptoatlas.eu/_next/static/chunks/684-03ad07be739f3fe6.js",
+      "https://cryptoatlas.eu/_next/static/chunks/app/layout-a1d0ca55e0826391.js",
+      "https://cryptoatlas.eu/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+      "https://cryptoatlas.eu/_next/static/chunks/polyfills-42372ed130431b0a.js",
+      "https://cryptoatlas.eu/_next/static/chunks/webpack-87e09e7e12c46b34.js",
+      "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+      "https://cryptoatlas.eu/europe-logo.svg",
+      "https://cryptoatlas.eu/explore",
+      "https://cryptoatlas.eu/favicon.ico",
+      "https://cryptoatlas.eu/github-mark-white.svg",
+      "https://cryptoatlas.eu/products",
+      "https://cryptoatlas.eu/robots.txt",
+      "https://cryptoatlas.eu/search",
+      "https://cryptoatlas.eu/sitemap.xml",
+      "https://cryptoatlas.eu/api",
+      "https://cryptoatlas.eu/api/explore",
+      "https://cryptoatlas.eu/api/search",
+      "https://cryptoatlas.eu/api/v1"
+    ],
+    "dedupe_seen": [
+      "0b4a5ab05a725487b4a5bd72",
+      "ac0543f278ce83ac39f14aa6",
+      "fb9c49c11671bb6d151a35d5",
+      "c60b46970da3908a6dd75674",
+      "d21cbdc7e4b2894433378e19",
+      "4366012f42b5ed165f75a183",
+      "4ecfee284e16d90b0eae5b5b",
+      "c8536aecd951bbd2e4096711",
+      "3c441176ff8d74c4e6d94ed3",
+      "4c8414b8dee4f85777f0a118",
+      "252b014c2138d81938deacc3",
+      "5249ab258e138f69c0916f1e",
+      "5beccb6986fa0c297fc98097",
+      "d82e6cdaa1a74dff50af2207",
+      "70633a5bb3993629e7e6ebef",
+      "8a8dba8e88ed4408f27a5e5d",
+      "587c7818c87b3b985f9c8a4f",
+      "cedd5b9f9b89388c7ab8298c",
+      "59d593fe6b4e3933a7acd8a5",
+      "30da9acbfabe6e6d8c42f4ae",
+      "b6ff0e333316043490b719aa",
+      "b0146e416613d36e9e39a2eb",
+      "a80e1bbc467693bfda232178",
+      "73ce0fcf5a0791b98a9a1d9a",
+      "848133a02ac473f6282323de",
+      "71731ef94ab914f3792ae4ec",
+      "d60c7d9806c156eec583c7bb",
+      "2f8501b483a73e607a33f3b0",
+      "76b31d2db9fd26cd3398b4e9",
+      "621486c49cc06e560ede22c7",
+      "c4f4c4624ef964c1b95d1a22",
+      "98cc517375fb4e913e621c8c",
+      "cb8c7593d22c1f2f9f06694e",
+      "21ce2687e90dd652a9001af5",
+      "d05d91c480f7d7fa94631035",
+      "2b84dccbc9e643be2dacbf68",
+      "78c8490d3837042fda7ad9a7",
+      "d33236597c400bf79aede26c",
+      "49ffbec9041e2808e2805ebb",
+      "145731af3b500af6a3156821",
+      "bd2f4ed423eba769bb282a0a",
+      "73bdb81661a98b69ff07ff7c",
+      "751dda0986887dfe69d59b65",
+      "7c8c4bd16551cd286205fe79",
+      "869ee1a3235d42d41d10e8df",
+      "133eea2dadcc6e1f2e9096e3",
+      "57a86c364963cab2f9d58415",
+      "9652621878eab6ad3198ad4f",
+      "14f60ed0bcb19cb3d9df495c",
+      "98a77fd8ef762e97fb955e34",
+      "703d1ed9773330fcbc4f9ec8",
+      "7b586a8db07253da7496c76d"
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "2ae70886ba944d1528",
+          "url": "https://cryptoatlas.eu/",
+          "depth": 0,
+          "type": "exchange/crypto service hub",
+          "source": "seed",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "content_type": "text/html; playwright",
+          "discovered_at": "2026-06-03T14:36:15Z"
+        },
+        {
+          "id": "33b03f751bd871ae32",
+          "url": "https://cryptoatlas.eu/categories",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:21Z"
+        },
+        {
+          "id": "afc522f30bd153f08f",
+          "url": "https://cryptoatlas.eu/directory",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:21Z"
+        },
+        {
+          "id": "ac9a9b5f24b8e73dd8",
+          "url": "https://cryptoatlas.eu/market",
+          "depth": 1,
+          "type": "marketplace",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "9cce2d7f9bd6911c5c",
+          "url": "https://cryptoatlas.eu/markets",
+          "depth": 1,
+          "type": "marketplace",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "52f3a23af99d617f9a",
+          "url": "https://cryptoatlas.eu/services",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "3dd3dd446793b6d0b7",
+          "url": "https://cryptoatlas.eu/api/categories",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "c0ab179433f092470e",
+          "url": "https://cryptoatlas.eu/api/directory",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "cba54aae47d56644b5",
+          "url": "https://cryptoatlas.eu/OG.jpg",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "image/jpeg",
+          "discovered_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "2a9c36812a0985ea4c",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:24Z"
+        },
+        {
+          "id": "d73beb83c1f31b9f54",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/684-03ad07be739f3fe6.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:25Z"
+        },
+        {
+          "id": "d0bb4bced00650f383",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/app/layout-a1d0ca55e0826391.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:26Z"
+        },
+        {
+          "id": "005792cf02bd736b5a",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:26Z"
+        },
+        {
+          "id": "58db4dc201beafd55a",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/polyfills-42372ed130431b0a.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "3bce4f48ebdfc40efb",
+          "url": "https://cryptoatlas.eu/_next/static/chunks/webpack-87e09e7e12c46b34.js",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "application/javascript",
+          "discovered_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "625fa34b4f0e3e28dd",
+          "url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/css",
+          "discovered_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "422737dd65129e7486",
+          "url": "https://cryptoatlas.eu/europe-logo.svg",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "image/svg+xml",
+          "discovered_at": "2026-06-03T14:36:48Z"
+        },
+        {
+          "id": "4cebaa434fd1ea2cd2",
+          "url": "https://cryptoatlas.eu/explore",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:49Z"
+        },
+        {
+          "id": "a927091034364bdc5a",
+          "url": "https://cryptoatlas.eu/favicon.ico",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "image/x-icon",
+          "discovered_at": "2026-06-03T14:36:49Z"
+        },
+        {
+          "id": "ce470270bc7cb98893",
+          "url": "https://cryptoatlas.eu/github-mark-white.svg",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "crawl",
+          "pattern_match": false,
+          "status_code": 200,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "image/svg+xml",
+          "discovered_at": "2026-06-03T14:36:50Z"
+        },
+        {
+          "id": "bbc5cb6226022ce6c6",
+          "url": "https://cryptoatlas.eu/products",
+          "depth": 1,
+          "type": "marketplace",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:50Z"
+        },
+        {
+          "id": "bc13581c7199da7aa6",
+          "url": "https://cryptoatlas.eu/robots.txt",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "5dcab6852545787cf1",
+          "url": "https://cryptoatlas.eu/search",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "7f737cdb96ed71793d",
+          "url": "https://cryptoatlas.eu/sitemap.xml",
+          "depth": 1,
+          "type": "exchange/crypto service hub",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "8bcf473ec50438084e",
+          "url": "https://cryptoatlas.eu/api",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "6c68702e30ab58d56b",
+          "url": "https://cryptoatlas.eu/api/explore",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "9ad03ced7fb63ef7df",
+          "url": "https://cryptoatlas.eu/api/search",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "3befb571125e44378e",
+          "url": "https://cryptoatlas.eu/api/v1",
+          "depth": 1,
+          "type": "API-first service",
+          "source": "inferred",
+          "pattern_match": false,
+          "status_code": 404,
+          "confidence": 0.65,
+          "parent": "https://cryptoatlas.eu/",
+          "content_type": "text/html; charset=iso-8859-1",
+          "discovered_at": "2026-06-03T14:36:52Z"
+        }
+      ],
+      "edges": [
+        {
+          "id": "a2bae1b8c89e247978",
+          "from": "2ae70886ba944d1528",
+          "to": "33b03f751bd871ae32",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:21Z"
+        },
+        {
+          "id": "9b19d77d0b3078aa02",
+          "from": "2ae70886ba944d1528",
+          "to": "afc522f30bd153f08f",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:21Z"
+        },
+        {
+          "id": "a0ddc71ec3a00ec3ec",
+          "from": "2ae70886ba944d1528",
+          "to": "ac9a9b5f24b8e73dd8",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "99b87f76c08258ac53",
+          "from": "2ae70886ba944d1528",
+          "to": "9cce2d7f9bd6911c5c",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "047de262bf8a28ed84",
+          "from": "2ae70886ba944d1528",
+          "to": "52f3a23af99d617f9a",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:22Z"
+        },
+        {
+          "id": "9f67e21da70b998dcb",
+          "from": "2ae70886ba944d1528",
+          "to": "3dd3dd446793b6d0b7",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "59ae431deb3afa7701",
+          "from": "2ae70886ba944d1528",
+          "to": "c0ab179433f092470e",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "cb9679c2ecda83c10a",
+          "from": "2ae70886ba944d1528",
+          "to": "cba54aae47d56644b5",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:23Z"
+        },
+        {
+          "id": "e53ac0c7652d8a8c31",
+          "from": "2ae70886ba944d1528",
+          "to": "2a9c36812a0985ea4c",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:24Z"
+        },
+        {
+          "id": "4ae5720820246b9213",
+          "from": "2ae70886ba944d1528",
+          "to": "d73beb83c1f31b9f54",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:25Z"
+        },
+        {
+          "id": "01c72867bc27534009",
+          "from": "2ae70886ba944d1528",
+          "to": "d0bb4bced00650f383",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:26Z"
+        },
+        {
+          "id": "3c5be856bd22996252",
+          "from": "2ae70886ba944d1528",
+          "to": "005792cf02bd736b5a",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:26Z"
+        },
+        {
+          "id": "e6b551c2120aa8f6ae",
+          "from": "2ae70886ba944d1528",
+          "to": "58db4dc201beafd55a",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "29a5d640b2ba1a16b7",
+          "from": "2ae70886ba944d1528",
+          "to": "3bce4f48ebdfc40efb",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "01178fb818f6eb23c3",
+          "from": "2ae70886ba944d1528",
+          "to": "625fa34b4f0e3e28dd",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:27Z"
+        },
+        {
+          "id": "da9cf29ad0ce8c1461",
+          "from": "2ae70886ba944d1528",
+          "to": "422737dd65129e7486",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:48Z"
+        },
+        {
+          "id": "be8760a9fb519d1435",
+          "from": "2ae70886ba944d1528",
+          "to": "4cebaa434fd1ea2cd2",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:49Z"
+        },
+        {
+          "id": "138575ec9d6bd9ddc5",
+          "from": "2ae70886ba944d1528",
+          "to": "a927091034364bdc5a",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:49Z"
+        },
+        {
+          "id": "4e6889c7a5d023082c",
+          "from": "2ae70886ba944d1528",
+          "to": "ce470270bc7cb98893",
+          "source": "crawl",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:50Z"
+        },
+        {
+          "id": "e94f2abf13d53c826a",
+          "from": "2ae70886ba944d1528",
+          "to": "bbc5cb6226022ce6c6",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:50Z"
+        },
+        {
+          "id": "c1c1c4f39059e43c87",
+          "from": "2ae70886ba944d1528",
+          "to": "bc13581c7199da7aa6",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "92905ff6e6b50d6acf",
+          "from": "2ae70886ba944d1528",
+          "to": "5dcab6852545787cf1",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "65665aa6cbd5ea96e3",
+          "from": "2ae70886ba944d1528",
+          "to": "7f737cdb96ed71793d",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:51Z"
+        },
+        {
+          "id": "824c9deb96ffb0c774",
+          "from": "2ae70886ba944d1528",
+          "to": "8bcf473ec50438084e",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "5b63e4fae4c4ad5c62",
+          "from": "2ae70886ba944d1528",
+          "to": "6c68702e30ab58d56b",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "cd248a2660d9316d8e",
+          "from": "2ae70886ba944d1528",
+          "to": "9ad03ced7fb63ef7df",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:52Z"
+        },
+        {
+          "id": "8c3c2af2d3ad50e35b",
+          "from": "2ae70886ba944d1528",
+          "to": "3befb571125e44378e",
+          "source": "inferred",
+          "relationship": "links_to",
+          "created_at": "2026-06-03T14:36:52Z"
+        }
+      ]
+    },
+    "patterns": [
+      {
+        "domain": "cryptoatlas.eu",
+        "pattern": "/{slug}",
+        "type": "path",
+        "confidence": 0.97,
+        "detected_values": [
+          "OG.jpg",
+          "categories",
+          "directory",
+          "market",
+          "markets",
+          "services"
+        ],
+        "suggested_values": [
+          "ai",
+          "fintech",
+          "crypto",
+          "health",
+          "openai",
+          "stripe",
+          "binance",
+          "kraken",
+          "coinbase",
+          "okx",
+          "bybit",
+          "OG.jpg",
+          "categories",
+          "directory",
+          "market",
+          "markets",
+          "services"
+        ],
+        "examples": [
+          "/categories",
+          "/directory",
+          "/market",
+          "/markets",
+          "/services"
+        ],
+        "enabled": true,
+        "active_values": []
+      },
+      {
+        "domain": "cryptoatlas.eu",
+        "pattern": "/api/{slug}",
+        "type": "path",
+        "confidence": 0.81,
+        "detected_values": [
+          "categories",
+          "directory"
+        ],
+        "suggested_values": [
+          "ai",
+          "fintech",
+          "crypto",
+          "health",
+          "openai",
+          "stripe",
+          "binance",
+          "kraken",
+          "coinbase",
+          "okx",
+          "bybit",
+          "categories",
+          "directory"
+        ],
+        "examples": [
+          "/api/categories",
+          "/api/directory"
+        ],
+        "enabled": true,
+        "active_values": []
+      },
+      {
+        "domain": "cryptoatlas.eu",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "type": "path",
+        "confidence": 0.93,
+        "detected_values": [
+          "4bd1b696-704dc55da575ac8d.js",
+          "684-03ad07be739f3fe6.js",
+          "c20461ee2437a459.css",
+          "chunks",
+          "css",
+          "main-app-3c11e02d385ccc19.js",
+          "polyfills-42372ed130431b0a.js",
+          "webpack-87e09e7e12c46b34.js"
+        ],
+        "suggested_values": [
+          "ai",
+          "fintech",
+          "crypto",
+          "health",
+          "openai",
+          "stripe",
+          "binance",
+          "kraken",
+          "coinbase",
+          "okx",
+          "bybit",
+          "chunks",
+          "css",
+          "4bd1b696-704dc55da575ac8d.js",
+          "684-03ad07be739f3fe6.js",
+          "c20461ee2437a459.css",
+          "main-app-3c11e02d385ccc19.js",
+          "polyfills-42372ed130431b0a.js",
+          "webpack-87e09e7e12c46b34.js"
+        ],
+        "examples": [
+          "/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+          "/_next/static/chunks/684-03ad07be739f3fe6.js",
+          "/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+          "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+          "/_next/static/chunks/webpack-87e09e7e12c46b34.js"
+        ],
+        "enabled": true,
+        "active_values": []
+      }
+    ],
+    "skipped": [
+      {
+        "url": "http://www.w3.org/2000/svg",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://3commas.io/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://blockchain-research-lab.org/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://crypto.com/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://crypto.com/cards",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://cryptoatlas.goatcounter.com/count",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://gc.zgo.at/count.js",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://github.com/kryptobesteuern/crypto-atlas",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://github.com/kryptobesteuern/crypto-atlas/issues/new?template=suggest-service.yml",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://hacken.io/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://krypto-besteuern.de/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://nexo.io/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://northerndata.de/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://trezor.io/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.bitcoin.de/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.bitpanda.com/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.bitstamp.net/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.chainalysis.com/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.fs-blockchain.de/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2F3commas.io",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fblockchain-research-lab.org",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fcrypto.com",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fhacken.io",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fkrypto-besteuern.de",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fnexo.io",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fnortherndata.de",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Ftrezor.io",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitcoin.de",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitpanda.com",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.bitstamp.net",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.chainalysis.com",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.fs-blockchain.de",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.ledger.com",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?amp%3Bsz=32&domain=https%3A%2F%2Fwww.sandbox.game",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2F3commas.io&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fblockchain-research-lab.org&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fcrypto.com&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fhacken.io&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fkrypto-besteuern.de&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fnexo.io&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fnortherndata.de&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Ftrezor.io&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitcoin.de&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitpanda.com&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.bitstamp.net&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.chainalysis.com&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.fs-blockchain.de&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.ledger.com&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.google.com/s2/favicons?domain=https%3A%2F%2Fwww.sandbox.game&sz=32",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.ledger.com/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.linkedin.com/in/markusbegerow",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://www.sandbox.game/",
+        "reason": "external_domain_not_crawled",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://cryptoatlas.eu/",
+        "reason": "duplicate_url",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 0
+      },
+      {
+        "url": "https://cryptoatlas.eu/privacy",
+        "reason": "blacklisted_dir",
+        "from_url": "https://cryptoatlas.eu/",
+        "depth": 1,
+        "source": "crawl",
+        "rule": {
+          "rule_id": "3dedd32be81baaf8b9",
+          "pattern": "privacy",
+          "kind": "contains",
+          "note": "Legal noise"
+        }
+      },
+      {
+        "url": "https://cryptoatlas.eu/categories",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/directory",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/market",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/markets",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/services",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/categories",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/directory",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/OG.jpg",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/684-03ad07be739f3fe6.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/app/layout-a1d0ca55e0826391.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/main-app-3c11e02d385ccc19.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/chunks/webpack-87e09e7e12c46b34.js",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/v1/",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/search",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/directory",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/explore",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/categories",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/search",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/directory",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/explore",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/categories",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/market",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/markets",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/services",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/products",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/sitemap.xml",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/robots.txt",
+        "reason": "duplicate_inferred_route",
+        "from_url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/ai",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "ai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/fintech",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "fintech",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/crypto",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "crypto",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/health",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "health",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/openai",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "openai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/stripe",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "stripe",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/binance",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "binance",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/kraken",
+        "reason": "soft_probe_invalid",
+        "pattern": "/{slug}",
+        "value": "kraken",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/ai",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "ai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/fintech",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "fintech",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/crypto",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "crypto",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/health",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "health",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/openai",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "openai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/stripe",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "stripe",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/binance",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "binance",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/kraken",
+        "reason": "soft_probe_invalid",
+        "pattern": "/api/{slug}",
+        "value": "kraken",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/ai/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "ai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/fintech/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "fintech",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/crypto/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "crypto",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/health/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "health",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/openai/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "openai",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/stripe/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "stripe",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/binance/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "binance",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/_next/static/kraken/{slug}",
+        "reason": "soft_probe_invalid",
+        "pattern": "/_next/static/{slug}/{slug}",
+        "value": "kraken",
+        "parent": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css"
+      },
+      {
+        "url": "https://cryptoatlas.eu/europe-logo.svg",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/explore",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/favicon.ico",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/github-mark-white.svg",
+        "reason": "fetch_empty_or_error",
+        "status": 200,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/products",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/robots.txt",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/search",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/sitemap.xml",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/explore",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/search",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      },
+      {
+        "url": "https://cryptoatlas.eu/api/v1",
+        "reason": "fetch_empty_or_error",
+        "status": 404,
+        "error": null,
+        "depth": 1
+      }
+    ],
+    "external_report": {
+      "candidates": [],
+      "resolved": [],
+      "failed": [],
+      "errors": []
+    },
+    "pagination_report": {
+      "pages": [
+        {
+          "url": "https://cryptoatlas.eu/",
+          "steps": 0,
+          "links_found": 2
+        },
+        {
+          "url": "https://cryptoatlas.eu/_next/static/css/c20461ee2437a459.css",
+          "steps": 0,
+          "links_found": 0
+        }
+      ],
+      "links_found": 2,
+      "errors": []
+    },
+    "masked_outbound_seen": 0,
+    "updated_at": "2026-06-03T14:36:53Z"
+  },
+  "updated_at": "2026-06-03T14:36:53Z"
+}

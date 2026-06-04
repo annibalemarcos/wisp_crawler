@@ -1,0 +1,11 @@
+{
+  "id": "888bb0adaa7c0d307c",
+  "pattern": "signup",
+  "kind": "contains",
+  "enabled": true,
+  "note": "Common signup page",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

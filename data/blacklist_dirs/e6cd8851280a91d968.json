@@ -1,0 +1,11 @@
+{
+  "id": "e6cd8851280a91d968",
+  "pattern": "/(?:wp-admin|wp-login)(?:/|$|\\?)",
+  "kind": "regex",
+  "enabled": true,
+  "note": "WordPress admin/login noise",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

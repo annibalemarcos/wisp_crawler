@@ -1,0 +1,71 @@
+========
+TYPE:
+Root-Seed
+========
+NAME:
+dappradar_dapps_discovery
+========
+URL:
+https://dappradar.com/
+========
+URL ROOT-SEED:
+Root: https://dappradar.com/
+Seed_0: https://dappradar.com/rankings
+Seed_1: https://dappradar.com/rankings/protocol
+Seed_2: https://dappradar.com/rankings/category/defi
+Seed_3: https://dappradar.com/rankings/category/exchanges
+Seed_4: https://dappradar.com/dapps
+========
+CONFIG
+========
+Depth: 3
+Max Pages: 300-700
+Pattern Expansion: on
+Route Inference: on
+Soft Probe: on
+Use Seeds: on
+Auto Pagination: on
+Pagination Limit: 50-100
+Follow Masked Outbound: on
+Aggressive External Resolver: off
+External Limit: 250-500
+Use Blacklist Dirs: on
+Directory Discovery Mode: on
+Known Directory URL: https://dappradar.com/rankings
+Root URL: https://dappradar.com/
+Section Root URL: https://dappradar.com/rankings
+Directory Keywords: rankings, dapps, defi, exchanges, games, nft, marketplaces, chains, protocols, category, apps, projects
+Max sibling routes: 50
+Find pagination: on
+Find listing cards: on
+Find outbound company links: on
+Find profile/detail pages: on
+========
+BLACKLIST
+========
+login
+signin
+signup
+register
+account
+dashboard
+portfolio
+token
+tokens
+nft
+nfts
+blog
+news
+academy
+research
+reports
+advertise
+press
+privacy
+terms
+cookies
+re:/(login|signin|signup|register|account|dashboard|portfolio)(/|$|\?)
+re:/(blog|news|academy|research|reports|press)(/|$)
+re:/token(s)?/[^/]+$
+re:/nft(s)?/[^/]+$
+========

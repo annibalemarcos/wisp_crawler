@@ -1,0 +1,20 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/ad/www/delivery/lg.php?amp;zoneid={amp;zoneid}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "7"
+  ],
+  "suggested_values": [
+    "7"
+  ],
+  "examples": [
+    "/ad/www/delivery/lg.php?amp;zoneid=7"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "2bc64f8e011337f3f4",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

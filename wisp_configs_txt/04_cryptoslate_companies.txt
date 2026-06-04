@@ -1,0 +1,71 @@
+========
+TYPE:
+Root-Seed
+========
+NAME:
+cryptoslate_companies
+========
+URL:
+https://cryptoslate.com/
+========
+URL ROOT-SEED:
+Root: https://cryptoslate.com/
+Seed_0: https://cryptoslate.com/companies/
+Seed_1: https://cryptoslate.com/coins/
+Seed_2: https://cryptoslate.com/people/
+Seed_3: https://cryptoslate.com/products/
+========
+CONFIG
+========
+Depth: 3
+Max Pages: 300-600
+Pattern Expansion: on
+Route Inference: on
+Soft Probe: on
+Use Seeds: on
+Auto Pagination: on
+Pagination Limit: 50-80
+Follow Masked Outbound: on
+Aggressive External Resolver: off
+External Limit: 200-400
+Use Blacklist Dirs: on
+Directory Discovery Mode: on
+Known Directory URL: https://cryptoslate.com/companies/
+Root URL: https://cryptoslate.com/
+Section Root URL: https://cryptoslate.com/companies/
+Directory Keywords: companies, company, products, coins, people, exchanges, wallets, services, blockchain, crypto, directory, profiles
+Max sibling routes: 40
+Find pagination: on
+Find listing cards: on
+Find outbound company links: on
+Find profile/detail pages: on
+========
+BLACKLIST
+========
+news
+analysis
+opinion
+press-releases
+sponsored
+events
+research
+login
+signin
+signup
+account
+author
+tag
+category
+privacy
+terms
+cookies
+contact
+about
+wp-content
+wp-admin
+wp-includes
+re:/(news|analysis|opinion|press-releases|sponsored|events|research)(/|$)
+re:/(author|tag|category)(/|$)
+re:/(login|signin|signup|account)(/|$|\?)
+re:/(wp-content|wp-admin|wp-includes)(/|$)
+========

@@ -1,0 +1,45 @@
+{
+  "domain": "cryptoatlas.eu",
+  "pattern": "/{slug}",
+  "type": "path",
+  "confidence": 0.97,
+  "detected_values": [
+    "OG.jpg",
+    "categories",
+    "directory",
+    "market",
+    "markets",
+    "services"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "OG.jpg",
+    "categories",
+    "directory",
+    "market",
+    "markets",
+    "services"
+  ],
+  "examples": [
+    "/categories",
+    "/directory",
+    "/market",
+    "/markets",
+    "/services"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "56a644a39a6e7c54c3",
+  "job_id": "992e1316cc4c519574",
+  "updated_at": "2026-06-03T14:36:53Z"
+}

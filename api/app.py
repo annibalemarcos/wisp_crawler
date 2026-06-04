@@ -14,6 +14,7 @@ from storage.pattern_store import pattern_store, seed_store
 from storage.service_store import service_store
 from graph.graph_store import graph_store
 from core.scheduler import start_job, list_jobs, get_job, pause_job, resume_job, restart_job_from_checkpoint, cancel_job, delete_job
+from storage.blacklist_store import list_rules as list_blacklist_rules, add_rule as add_blacklist_rule, update_rule as update_blacklist_rule, delete_rule as delete_blacklist_rule, replace_rules as replace_blacklist_rules
 from patterns.suggest import suggest_from_payload
 from patterns.seeds import create_seed
 from storage.event_bus import event_bus
@@ -81,6 +82,83 @@ def api_bulk_run():
     urls = data.get("urls") or []
     jobs = [start_job({**data, "url": u}) for u in urls if u]
     return jsonify({"jobs": jobs, "count": len(jobs)}), 202
+
+@app.post("/api/massive-run")
+def api_massive_run():
+    """Create many connected jobs from root/seed entries.
+
+    Payload accepts either:
+      entries: [{root_url, seed_url, label, enabled}]
+      urls: ["https://..."]  # fallback
+    For entries with both root_url and seed_url, both may be launched depending
+    on launch_roots / launch_seeds. Each job keeps massive_batch_id metadata.
+    """
+    data = request.get_json(force=True)
+    entries = data.get("entries") or []
+    if not entries and data.get("urls"):
+        entries = [{"seed_url": u, "root_url": "", "label": ""} for u in data.get("urls") or []]
+    batch_id = stable_id("massive", str(time.time()))
+    launch_roots = data.get("launch_roots", True)
+    launch_seeds = data.get("launch_seeds", True)
+    jobs = []
+    seen = set()
+    for idx, row in enumerate(entries):
+        if not row or row.get("enabled") is False:
+            continue
+        label = row.get("label") or row.get("name") or f"node-{idx+1}"
+        targets = []
+        if launch_roots and row.get("root_url"):
+            targets.append(("root", row.get("root_url")))
+        if launch_seeds and row.get("seed_url"):
+            targets.append(("seed", row.get("seed_url")))
+        if not targets and row.get("url"):
+            targets.append(("seed", row.get("url")))
+        for node_type, url in targets:
+            if not url or url in seen:
+                continue
+            seen.add(url)
+            payload = {**data, "url": url}
+            payload.pop("entries", None); payload.pop("urls", None)
+            payload["mode"] = "massive_job"
+            payload["massive_batch_id"] = batch_id
+            payload["massive_label"] = label
+            payload["massive_node_type"] = node_type
+            j = start_job(payload)
+            # store metadata after creation
+            full = job_store.get(j["id"]) or j
+            full.update({"massive_batch_id": batch_id, "massive_label": label, "massive_node_type": node_type, "massive_index": idx})
+            job_store.put(full["id"], full)
+            jobs.append(full)
+    event_bus.publish("massive_job_created", {"batch_id": batch_id, "jobs": len(jobs), "entries": len(entries)})
+    return jsonify({"batch_id": batch_id, "jobs": jobs, "count": len(jobs), "entries": len(entries)}), 202
+
+@app.get("/api/blacklist-dirs")
+def api_blacklist_dirs():
+    return jsonify({"rules": list_blacklist_rules()})
+
+@app.post("/api/blacklist-dirs")
+def api_blacklist_add():
+    try:
+        return jsonify(add_blacklist_rule(request.get_json(force=True))), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 400
+
+@app.put("/api/blacklist-dirs")
+def api_blacklist_replace():
+    data = request.get_json(force=True)
+    rows = data.get("rules") if isinstance(data, dict) else data
+    return jsonify({"rules": replace_blacklist_rules(rows or [])})
+
+@app.put("/api/blacklist-dirs/<rid>")
+def api_blacklist_update(rid):
+    item = update_blacklist_rule(rid, request.get_json(force=True))
+    if not item:
+        return jsonify({"error": "rule not found"}), 404
+    return jsonify(item)
+
+@app.delete("/api/blacklist-dirs/<rid>")
+def api_blacklist_delete(rid):
+    return jsonify({"deleted": delete_blacklist_rule(rid), "id": rid})
 
 @app.get("/api/results")
 def api_results():
@@ -316,6 +394,177 @@ def api_pattern_lab_probe():
                     out.append({'url': u, 'valid': False, 'error': str(e)})
             return out
     return jsonify({'results': asyncio.run(run())})
+
+
+
+# Config Import/Export + Directory Discovery Mode
+
+def _truthy(v, default=False):
+    if v is None: return default
+    if isinstance(v, bool): return v
+    return str(v).strip().lower() in {"1","true","yes","y","on","sim","ligado","enabled"}
+
+def _first_int(text, default):
+    import re
+    if text is None: return default
+    m = re.search(r"\d+", str(text))
+    return int(m.group(0)) if m else default
+
+def _parse_url_lines(block: str) -> list[str]:
+    import re
+    out=[]
+    for line in (block or '').splitlines():
+        line=line.strip().strip('-•* ')
+        if not line or line.startswith('#'): continue
+        found=re.findall(r"https?://[^\s,;]+", line)
+        out.extend([u.rstrip(').,;') for u in found])
+    return out
+
+def _parse_config_text(text: str) -> dict:
+    import json, re
+    raw = (text or '').replace('\r\n','\n').replace('\r','\n')
+    try:
+        if raw.strip().startswith('{'):
+            d=json.loads(raw)
+            if isinstance(d, dict): return d
+    except Exception:
+        pass
+    lines=[ln.rstrip() for ln in raw.split('\n')]
+    sections={}; current='MAIN'; buf=[]
+    def flush(): sections[current]=('\n'.join(buf)).strip()
+    i=0
+    while i < len(lines):
+        ln=lines[i].strip()
+        if set(ln) <= {'='} and len(ln)>=4:
+            flush(); buf=[]; j=i+1
+            while j < len(lines) and not lines[j].strip(): j+=1
+            if j < len(lines): current=lines[j].strip().strip(':').upper(); i=j
+            else: current=f'SECTION_{i}'
+        else:
+            buf.append(lines[i])
+        i+=1
+    flush()
+    body='\n'.join(sections.values())+'\n'+raw
+    def find_bool(name, default=False):
+        m=re.search(rf"{re.escape(name)}\s*:\s*([^\n]+)", body, re.I)
+        return _truthy(m.group(1), default) if m else default
+    def find_int(name, default):
+        m=re.search(rf"{re.escape(name)}\s*:\s*([^\n]+)", body, re.I)
+        return _first_int(m.group(1), default) if m else default
+    typ=(sections.get('TYPE') or '').strip().splitlines()[0:1]
+    typ=typ[0].strip() if typ else 'Single Job'
+    urls=_parse_url_lines(sections.get('URL',''))
+    root_seed_block=sections.get('URL ROOT-SEED','') or sections.get('ROOT-SEED','') or sections.get('ROOT-SEED URL','')
+    root_seed_urls=_parse_url_lines(root_seed_block)
+    roots=[]; seeds=[]
+    for line in root_seed_block.splitlines():
+        if re.search(r'\broot\b', line, re.I): roots += _parse_url_lines(line)
+        if re.search(r'\bseed', line, re.I): seeds += _parse_url_lines(line)
+    if not roots and root_seed_urls: roots=[root_seed_urls[0]]
+    if not seeds and len(root_seed_urls)>1: seeds=root_seed_urls[1:]
+    blacklist=[]
+    for ln in (sections.get('BLACKLIST','') or '').splitlines():
+        x=ln.strip().strip('-•*')
+        if not x or x.startswith('#') or set(x)<={'='}: continue
+        blacklist.append(x)
+    cfg={'type':typ,'urls':urls,'roots':roots,'seeds':seeds,'raw_root_seed_urls':root_seed_urls,
+         'depth':find_int('Depth',2),'max_pages':find_int('Max Pages',100),
+         'pattern_expansion':find_bool('Pattern Expansion',False),'route_inference':find_bool('Route Inference',False),'soft_probe':find_bool('Soft Probe',False),'use_pattern_seeds':find_bool('Use Seeds',True),'auto_pagination':find_bool('Auto Pagination',False),'pagination_limit':find_int('Pagination Limit',25),'follow_masked_outbound':find_bool('Follow Masked Outbound',False),'masked_outbound_aggressive':find_bool('Aggressive External Resolver',False),'masked_outbound_limit':find_int('External Limit',300),'use_blacklist_dirs':True,'blacklist':blacklist}
+    if cfg['type'].lower().replace('-',' ').startswith('bulk') and not cfg['urls']: cfg['urls']=root_seed_urls
+    return cfg
+
+def _config_to_job_payload(cfg: dict, url: str) -> dict:
+    return {'url':url,'depth':int(cfg.get('depth') or cfg.get('max_depth') or 2),'max_depth':int(cfg.get('max_depth') or cfg.get('depth') or 2),'max_pages':int(cfg.get('max_pages') or 100),'pattern_expansion':bool(cfg.get('pattern_expansion')),'route_inference':bool(cfg.get('route_inference')),'soft_probe':bool(cfg.get('soft_probe')),'use_pattern_seeds':bool(cfg.get('use_pattern_seeds',True)),'auto_pagination':bool(cfg.get('auto_pagination')),'pagination_limit':int(cfg.get('pagination_limit') or 25),'follow_masked_outbound':bool(cfg.get('follow_masked_outbound')),'masked_outbound_aggressive':bool(cfg.get('masked_outbound_aggressive')),'masked_detail_boost':bool(cfg.get('masked_outbound_aggressive')),'masked_outbound_limit':int(cfg.get('masked_outbound_limit') or 300),'use_blacklist_dirs':bool(cfg.get('use_blacklist_dirs',True)),'imported_config':True}
+
+def _apply_blacklist_from_config(cfg: dict) -> int:
+    rows=[]
+    for x in cfg.get('blacklist') or []:
+        raw=str(x).strip()
+        if not raw: continue
+        kind='regex' if raw.startswith(('re:','regex:')) or raw.startswith('{regex') else 'contains'
+        pattern=raw.split(':',1)[1].strip() if raw.startswith(('re:','regex:')) else raw
+        if raw.startswith('{regex'): pattern=raw.strip('{}')
+        rows.append({'pattern':pattern,'kind':kind,'enabled':True,'note':'imported from config'})
+    for r in rows:
+        try: add_blacklist_rule(r)
+        except Exception: pass
+    return len(rows)
+
+@app.post('/api/config/parse')
+def api_config_parse():
+    data=request.get_json(force=True); cfg=_parse_config_text(data.get('text','') if isinstance(data,dict) else '')
+    return jsonify({'config':cfg,'summary':{'type':cfg.get('type'),'urls':len(cfg.get('urls') or []),'roots':len(cfg.get('roots') or []),'seeds':len(cfg.get('seeds') or []),'blacklist':len(cfg.get('blacklist') or [])}})
+
+@app.post('/api/config/launch')
+def api_config_launch():
+    data=request.get_json(force=True); cfg=data.get('config') or _parse_config_text(data.get('text',''))
+    if data.get('apply_blacklist', True): _apply_blacklist_from_config(cfg)
+    typ=str(cfg.get('type') or '').lower().replace('-',' ')
+    if 'root' in typ and 'seed' in typ: targets=(cfg.get('roots') or [])+(cfg.get('seeds') or [])
+    elif 'bulk' in typ: targets=cfg.get('urls') or []
+    else: targets=cfg.get('urls') or cfg.get('seeds') or cfg.get('roots') or []
+    seen=set(); jobs=[]; batch_id=stable_id('import-config', str(time.time()))
+    for u in targets:
+        if not u or u in seen: continue
+        seen.add(u); payload=_config_to_job_payload(cfg,u); payload.update({'config_batch_id':batch_id,'config_type':cfg.get('type')}); jobs.append(start_job(payload))
+    event_bus.publish('config_jobs_launched', {'batch_id':batch_id,'jobs':len(jobs),'type':cfg.get('type')})
+    return jsonify({'batch_id':batch_id,'jobs':jobs,'count':len(jobs),'config':cfg}), 202
+
+@app.get('/api/config/export')
+def api_config_export():
+    jid=request.args.get('job_id'); j=job_store.get(jid) if jid else None
+    if not j: j={'url':'https://example.com/','depth':2,'max_pages':100,'pattern_expansion':True,'route_inference':False,'soft_probe':True,'use_pattern_seeds':True,'auto_pagination':False,'pagination_limit':25,'follow_masked_outbound':True,'masked_outbound_aggressive':True,'masked_outbound_limit':300}
+    lines=['========','TYPE:','Single Job','========','URL:',j.get('url',''),'========','URL ROOT-SEED:',f"Root: {j.get('url','')}",f"Seed_0: {j.get('url','')}",'========','CONFIG','========',f"Depth: {j.get('max_depth') or j.get('depth') or 2}",f"Max Pages: {j.get('max_pages') or 100}",f"Pattern Expansion: {'on' if j.get('pattern_expansion') else 'off'}",f"Route Inference: {'on' if j.get('route_inference') else 'off'}",f"Soft Probe: {'on' if j.get('soft_probe') else 'off'}",f"Use Seeds: {'on' if j.get('use_pattern_seeds', True) else 'off'}",f"Auto Pagination: {'on' if j.get('auto_pagination') else 'off'}",f"Pagination Limit: {j.get('pagination_limit') or 25}",f"Follow Masked Outbound: {'on' if j.get('follow_masked_outbound') else 'off'}",f"Aggressive External Resolver: {'on' if j.get('masked_outbound_aggressive') else 'off'}",f"External Limit: {j.get('masked_outbound_limit') or 300}",'========','BLACKLIST','========','login','blog','news','help','terms','cookies','re:/(wp-content|wp-admin|wp-includes)(/|$)','========']
+    return jsonify({'text':'\n'.join(lines)})
+
+def _dedupe(seq):
+    out=[]; seen=set()
+    for x in seq:
+        if x and x not in seen: seen.add(x); out.append(x)
+    return out
+
+def _directory_candidates(root_url, section_root, known_url, keywords, max_sibling=20):
+    from urllib.parse import urlparse, urljoin
+    kws=[k.strip('/ ').lower() for k in (keywords or []) if k.strip('/ ')]
+    bases=[]
+    for u in [known_url, section_root, root_url]:
+        if not u: continue
+        p=urlparse(u)
+        if not p.scheme or not p.netloc: continue
+        parts=[x for x in (p.path or '/').split('/') if x]
+        bases.append(f'{p.scheme}://{p.netloc}/')
+        if parts:
+            bases.append(f'{p.scheme}://{p.netloc}/' + '/'.join(parts[:-1]) + '/')
+            bases.append(f'{p.scheme}://{p.netloc}/' + parts[0] + '/')
+    bases=_dedupe(bases); candidates=[]
+    for b in bases[:10]:
+        candidates.append(b)
+        for kw in kws[:max_sibling]: candidates.append(urljoin(b, kw.strip('/') + '/'))
+    if known_url: candidates.insert(0, known_url)
+    if section_root: candidates.insert(0, section_root)
+    if root_url: candidates.insert(0, root_url)
+    return _dedupe(candidates)[:max(10, max_sibling*4)]
+
+@app.post('/api/directory-discovery/preview')
+def api_directory_discovery_preview():
+    d=request.get_json(force=True); keywords=d.get('directory_keywords') or d.get('keywords') or []
+    if isinstance(keywords,str): keywords=[x.strip() for x in keywords.replace('\n',',').split(',') if x.strip()]
+    c=_directory_candidates(d.get('root_url',''), d.get('section_root_url',''), d.get('known_directory_url',''), keywords, int(d.get('max_sibling_routes') or 20))
+    rows=[{'url':u,'reason':'known/section/root candidate' if u in [d.get('root_url'),d.get('section_root_url'),d.get('known_directory_url')] else 'keyword sibling route'} for u in c]
+    return jsonify({'candidates':rows,'count':len(rows)})
+
+@app.post('/api/directory-discovery/run')
+def api_directory_discovery_run():
+    d=request.get_json(force=True)
+    keywords=d.get('directory_keywords') or d.get('keywords') or []
+    if isinstance(keywords,str): keywords=[x.strip() for x in keywords.replace('\n',',').split(',') if x.strip()]
+    c=_directory_candidates(d.get('root_url',''), d.get('section_root_url',''), d.get('known_directory_url',''), keywords, int(d.get('max_sibling_routes') or 20))
+    batch_id=stable_id('directory-discovery', str(time.time())); jobs=[]
+    for u in c[:int(d.get('launch_limit') or 50)]:
+        payload={'url':u,'depth':int(d.get('depth') or 2),'max_depth':int(d.get('depth') or 2),'max_pages':int(d.get('max_pages') or 100),'pattern_expansion':_truthy(d.get('pattern_expansion'),True),'route_inference':_truthy(d.get('route_inference'),True),'soft_probe':_truthy(d.get('soft_probe'),True),'use_pattern_seeds':_truthy(d.get('use_pattern_seeds'),True),'auto_pagination':_truthy(d.get('find_pagination'),True),'pagination_limit':int(d.get('pagination_limit') or 25),'follow_masked_outbound':_truthy(d.get('find_outbound_company_links'),False),'masked_outbound_aggressive':_truthy(d.get('aggressive_external_resolver'),False),'masked_outbound_limit':int(d.get('external_limit') or 300),'directory_discovery':True,'directory_discovery_batch_id':batch_id}
+        jobs.append(start_job(payload))
+    event_bus.publish('directory_discovery_launched', {'batch_id':batch_id,'jobs':len(jobs),'candidates':len(c)})
+    return jsonify({'batch_id':batch_id,'jobs':jobs,'count':len(jobs),'candidates':[{'url':u} for u in c]}), 202
 
 if __name__ == "__main__":
     port = int(os.environ.get("WISP_PORT", "5220"))

@@ -1,0 +1,37 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/wp-json/wp/v2/pages/%5C%22https:%5C/%5C/cryptodirectories.com%5C/crypto-directory%5C/{slug}",
+  "type": "path",
+  "confidence": 0.89,
+  "detected_values": [
+    "altcoin%5C%22",
+    "bitcoin%5C%22",
+    "companies%5C%22"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "altcoin%5C%22",
+    "bitcoin%5C%22",
+    "companies%5C%22"
+  ],
+  "examples": [
+    "/wp-json/wp/v2/pages/%5C%22https:%5C/%5C/cryptodirectories.com%5C/crypto-directory%5C/altcoin%5C%22",
+    "/wp-json/wp/v2/pages/%5C%22https:%5C/%5C/cryptodirectories.com%5C/crypto-directory%5C/bitcoin%5C%22",
+    "/wp-json/wp/v2/pages/%5C%22https:%5C/%5C/cryptodirectories.com%5C/crypto-directory%5C/companies%5C%22"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "6e35dc5c5cc97bbdf0",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

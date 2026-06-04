@@ -1,0 +1,43 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/{slug}",
+  "type": "path",
+  "confidence": 0.97,
+  "detected_values": [
+    "categories",
+    "directory",
+    "market",
+    "markets",
+    "services"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "categories",
+    "directory",
+    "market",
+    "markets",
+    "services"
+  ],
+  "examples": [
+    "/categories",
+    "/directory",
+    "/market",
+    "/markets",
+    "/services"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "433f770a976bbd77f4",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

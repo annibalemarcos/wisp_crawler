@@ -1,0 +1,35 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/ad/www/delivery/{slug}",
+  "type": "path",
+  "confidence": 0.89,
+  "detected_values": [
+    "asyncjs.php",
+    "lg.php"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "asyncjs.php",
+    "lg.php"
+  ],
+  "examples": [
+    "/ad/www/delivery/asyncjs.php",
+    "/ad/www/delivery/lg.php?amp%3Bcampaignid=10&amp%3Bcb=0f9b6c954a&amp%3Bloc=https%3A%2F%2Fcryptodirectories.com%2F&amp%3Bzoneid=7&bannerid=48",
+    "/ad/www/delivery/lg.php?bannerid=48&campaignid=10&cb=0f9b6c954a&loc=https%3A%2F%2Fcryptodirectories.com%2F&zoneid=7"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "49e5c0444533e22500",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

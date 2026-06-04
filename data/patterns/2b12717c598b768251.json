@@ -1,0 +1,20 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/blog/how-to-earn-online-without-investment-using-crypto-press-release-reselling?amp;utm_campaign={amp;utm_campaign}",
+  "type": "query",
+  "confidence": 0.63,
+  "detected_values": [
+    "how-to-earn-online-without-investment-using-crypto-press-release-reselling"
+  ],
+  "suggested_values": [
+    "how-to-earn-online-without-investment-using-crypto-press-release-reselling"
+  ],
+  "examples": [
+    "/blog/how-to-earn-online-without-investment-using-crypto-press-release-reselling?amp;utm_campaign=how-to-earn-online-without-investment-using-crypto-press-release-reselling"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "2b12717c598b768251",
+  "job_id": "5f7c6f23d1534a9bc8",
+  "updated_at": "2026-06-03T14:56:21Z"
+}

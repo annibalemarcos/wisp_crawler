@@ -1,0 +1,44 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/wp-content/uploads/2023/{page}/{slug}",
+  "type": "path",
+  "confidence": 0.77,
+  "detected_values": [
+    "01",
+    "06",
+    "Crypto-Directories-Favicon.png",
+    "crypto-directories-home-logo.png",
+    "cryptogames-300x250.gif",
+    "cryptogames-468x60.gif"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "01",
+    "06",
+    "Crypto-Directories-Favicon.png",
+    "crypto-directories-home-logo.png",
+    "cryptogames-300x250.gif",
+    "cryptogames-468x60.gif"
+  ],
+  "examples": [
+    "/wp-content/uploads/2023/01/Crypto-Directories-Favicon.png",
+    "/wp-content/uploads/2023/01/crypto-directories-home-logo.png",
+    "/wp-content/uploads/2023/06/cryptogames-300x250.gif",
+    "/wp-content/uploads/2023/06/cryptogames-468x60.gif"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "fa7210c79b286d10c4",
+  "job_id": "bc2301c306af46aa62",
+  "updated_at": "2026-06-03T14:55:13Z"
+}

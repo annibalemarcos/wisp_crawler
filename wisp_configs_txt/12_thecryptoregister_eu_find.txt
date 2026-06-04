@@ -1,0 +1,66 @@
+========
+TYPE:
+Root-Seed
+========
+NAME:
+thecryptoregister_eu_find
+========
+URL:
+https://thecryptoregister.com/eu/find
+========
+URL ROOT-SEED:
+Root: https://thecryptoregister.com/
+Seed_0: https://thecryptoregister.com/eu/find
+Seed_1: https://thecryptoregister.com/eu/
+Seed_2: https://thecryptoregister.com/find
+Seed_3: https://thecryptoregister.com/register
+========
+CONFIG
+========
+Depth: 3
+Max Pages: 250-500
+Pattern Expansion: on
+Route Inference: on
+Soft Probe: on
+Use Seeds: on
+Auto Pagination: on
+Pagination Limit: 40-80
+Follow Masked Outbound: on
+Aggressive External Resolver: off
+External Limit: 200-400
+Use Blacklist Dirs: on
+Directory Discovery Mode: on
+Known Directory URL: https://thecryptoregister.com/eu/find
+Root URL: https://thecryptoregister.com/
+Section Root URL: https://thecryptoregister.com/eu/
+Directory Keywords: find, register, eu, companies, company, service providers, crypto asset, exchanges, providers, firms, directory, regulated
+Max sibling routes: 50
+Find pagination: on
+Find listing cards: on
+Find outbound company links: on
+Find profile/detail pages: on
+========
+BLACKLIST
+========
+login
+signin
+signup
+register-account
+account
+dashboard
+privacy
+terms
+cookies
+contact
+about
+blog
+news
+article
+articles
+press
+media
+help
+support
+re:/(login|signin|signup|account|dashboard)(/|$|\?)
+re:/(blog|news|article|articles|press|media|help|support)(/|$)
+========

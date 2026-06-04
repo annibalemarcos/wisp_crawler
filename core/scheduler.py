@@ -55,11 +55,23 @@ def start_job(payload: dict, rerun_of: str | None = None) -> dict:
         "id": jid, "url": payload["url"], "depth": int(payload.get("depth", payload.get("max_depth", 2))),
         "max_pages": int(payload.get("max_pages", payload.get("pages", 200))), "status": "queued",
         "progress": {"pages": 0},
-        "options": {"pattern_expansion": payload.get("pattern_expansion", True), "route_inference": payload.get("route_inference", True), "api_discovery": payload.get("api_discovery", True), "hypothetical_urls": payload.get("hypothetical_urls", True), "use_pattern_seeds": payload.get("use_pattern_seeds", True), "use_suggested_values": payload.get("use_suggested_values", True), "soft_probe": payload.get("soft_probe", True), "expand_existing_graph": payload.get("expand_existing_graph", True), "follow_masked_outbound": payload.get("follow_masked_outbound", False), "masked_outbound_aggressive": payload.get("masked_outbound_aggressive", False), "masked_detail_boost": payload.get("masked_detail_boost", payload.get("masked_outbound_aggressive", False)), "masked_outbound_limit": int(payload.get("masked_outbound_limit", 500 if payload.get("masked_outbound_aggressive", False) else 120)), "external_resolver_timeout": int(payload.get("external_resolver_timeout", 22 if payload.get("masked_outbound_aggressive", False) else 15)), "auto_pagination": payload.get("auto_pagination", False), "pagination_limit": int(payload.get("pagination_limit", 25))},
+        "options": {"pattern_expansion": payload.get("pattern_expansion", True), "route_inference": payload.get("route_inference", True), "api_discovery": payload.get("api_discovery", True), "hypothetical_urls": payload.get("hypothetical_urls", True), "use_pattern_seeds": payload.get("use_pattern_seeds", True), "use_suggested_values": payload.get("use_suggested_values", True), "soft_probe": payload.get("soft_probe", True), "expand_existing_graph": payload.get("expand_existing_graph", True), "follow_masked_outbound": payload.get("follow_masked_outbound", False), "masked_outbound_aggressive": payload.get("masked_outbound_aggressive", False), "masked_detail_boost": payload.get("masked_detail_boost", payload.get("masked_outbound_aggressive", False)), "masked_outbound_limit": int(payload.get("masked_outbound_limit", 500 if payload.get("masked_outbound_aggressive", False) else 120)), "external_resolver_timeout": int(payload.get("external_resolver_timeout", 22 if payload.get("masked_outbound_aggressive", False) else 15)), "auto_pagination": payload.get("auto_pagination", False), "pagination_limit": int(payload.get("pagination_limit", 25)), "use_blacklist_dirs": payload.get("use_blacklist_dirs", True), "blacklist_extra": payload.get("blacklist_extra", [])},
         "rerun_of": rerun_of, "mode": "deep_crawl" if rerun_of else payload.get("mode", "crawl"),
         "created_at": _now_iso(), "created_unix": now, "started_unix": None, "elapsed_seconds": 0,
         "paused_total_seconds": 0, "control": "running", "resume_from_checkpoint": False
     }
+    # Keep launch metadata so jobs created by Massive Job, Config Import or
+    # Directory Discovery are immediately visible/filterable in dashboards and
+    # dropdowns after a refresh. The crawler options stay in job["options"],
+    # but these descriptive fields belong on the job itself.
+    for k in (
+        "massive_batch_id", "massive_label", "massive_node_type", "massive_index",
+        "config_batch_id", "config_type", "config_name",
+        "directory_discovery", "directory_discovery_batch_id", "directory_discovery_source",
+        "root_url", "seed_url", "section_root_url", "known_directory_url"
+    ):
+        if k in payload and payload.get(k) is not None:
+            job[k] = payload.get(k)
     job_store.put(jid, job)
     event_bus.publish("job_queued", {"job_id": jid, "url": job["url"], "status": "queued", "options": job.get("options", {})})
     _start_thread(jid)

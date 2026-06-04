@@ -1,0 +1,11 @@
+{
+  "id": "955a8b0299d5a057ae",
+  "pattern": "account",
+  "kind": "contains",
+  "enabled": true,
+  "note": "Account area",
+  "scope": "global",
+  "built_in": true,
+  "created_at": "2026-06-03T14:35:46Z",
+  "updated_at": "2026-06-03T14:35:46Z"
+}

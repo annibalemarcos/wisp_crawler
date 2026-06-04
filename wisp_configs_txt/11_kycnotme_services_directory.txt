@@ -1,0 +1,66 @@
+========
+TYPE:
+Root-Seed
+========
+NAME:
+kycnotme_services_directory
+========
+URL:
+https://kycnot.me/
+========
+URL ROOT-SEED:
+Root: https://kycnot.me/
+Seed_0: https://kycnot.me/
+Seed_1: https://kycnot.me/service/
+Seed_2: https://kycnot.me/services/
+Seed_3: https://kycnot.me/exchange/
+Seed_4: https://kycnot.me/exchanges/
+========
+CONFIG
+========
+Depth: 3
+Max Pages: 200-400
+Pattern Expansion: on
+Route Inference: on
+Soft Probe: on
+Use Seeds: on
+Auto Pagination: on
+Pagination Limit: 30-60
+Follow Masked Outbound: on
+Aggressive External Resolver: on
+External Limit: 250-500
+Use Blacklist Dirs: on
+Directory Discovery Mode: on
+Known Directory URL: https://kycnot.me/
+Root URL: https://kycnot.me/
+Section Root URL: https://kycnot.me/
+Directory Keywords: service, services, exchange, exchanges, no kyc, kyc, wallets, swaps, privacy, crypto, directory, list, providers
+Max sibling routes: 45
+Find pagination: on
+Find listing cards: on
+Find outbound company links: on
+Find profile/detail pages: on
+========
+BLACKLIST
+========
+login
+signin
+signup
+register
+account
+dashboard
+donate
+contribute
+about
+privacy
+terms
+cookies
+blog
+news
+docs
+api
+help
+contact
+re:/(login|signin|signup|register|account|dashboard)(/|$|\?)
+re:/(blog|news|docs|api|help)(/|$)
+========

@@ -1,0 +1,48 @@
+{
+  "domain": "cryptodirectories.com",
+  "pattern": "/{id}",
+  "type": "path",
+  "confidence": 0.97,
+  "detected_values": [
+    "701",
+    "702",
+    "api",
+    "crypto",
+    "hardware-wallets",
+    "health",
+    "merchant-services",
+    "mobile-wallets",
+    "search",
+    "software-wallets-pc",
+    "web-wallets",
+    "wp-json",
+    "xmlrpc.php"
+  ],
+  "suggested_values": [
+    "701",
+    "702",
+    "api",
+    "crypto",
+    "hardware-wallets",
+    "health",
+    "merchant-services",
+    "mobile-wallets",
+    "search",
+    "software-wallets-pc",
+    "web-wallets",
+    "wp-json",
+    "xmlrpc.php"
+  ],
+  "examples": [
+    "/wp-json",
+    "/xmlrpc.php?rsd=",
+    "/api",
+    "/search",
+    "/search"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "4ee98d9363aeeab67a",
+  "job_id": "bc2301c306af46aa62",
+  "updated_at": "2026-06-03T14:55:13Z"
+}
