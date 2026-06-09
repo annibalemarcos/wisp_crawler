@@ -28,6 +28,8 @@ Pagination Limit: 50-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: companies, company, products, coins, people, exchanges, wallets, services, blockchain, crypto, directory, profiles
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptoslate.com/companies/

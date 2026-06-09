@@ -8,11 +8,29 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 EVENTS_FILE = DATA / "events.jsonl"
 
+# Events that fire very often and are safe to coalesce when optimization mode
+# is on. Critical lifecycle events (job_completed, job_failed, job_cancelled,
+# job_started, pattern_detected, masked_outbound_resolved, etc.) are never
+# throttled.
+_THROTTLE_TYPES = {
+    "job_progress",
+    "node_discovered",
+    "edge_created",
+    "pagination_step",
+    "pagination_links_collected",
+    "pattern_applied",
+    "url_skipped",
+    "masked_outbound_scan",
+}
+
+
 class EventBus:
     def __init__(self, max_history: int = 10000):
         self.clients: list[queue.Queue] = []
         self.history = deque(maxlen=max_history)
         self.lock = threading.RLock()
+        # Per-event-type "last published" timestamp used by the throttle.
+        self._last_publish: dict[str, float] = {}
         DATA.mkdir(parents=True, exist_ok=True)
         self._load_from_disk()
 
@@ -40,6 +58,21 @@ class EventBus:
 
     def publish(self, event: str, payload: dict | None = None):
         payload = payload or {}
+        # High-frequency events are coalesced when the optimization toggle is
+        # enabled. We import lazily to avoid an import cycle at module load.
+        if event in _THROTTLE_TYPES:
+            try:
+                from core import runtime_config as _rc
+                if _rc.is_optimized():
+                    interval = float(_rc.get("event_bus_min_interval_ms") or 0) / 1000.0
+                    if interval > 0:
+                        now = time.time()
+                        last = self._last_publish.get(event, 0.0)
+                        if now - last < interval:
+                            return
+                        self._last_publish[event] = now
+            except Exception:
+                pass
         msg = {
             "event": event,
             "payload": payload,

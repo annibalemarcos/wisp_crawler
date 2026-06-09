@@ -54,6 +54,26 @@ All mandatory endpoints are implemented:
 
 Playwright is optional at runtime. If it is not installed or browsers are unavailable, WISP falls back to `aiohttp`.
 
+## Optimization Mode (new)
+
+WISP now ships with a built-in **Optimization Mode** that prevents the
+crawler from saturating CPU, RAM and network — the main complaint on
+Windows 10 desktops. It is **ON by default**.
+
+Toggle it from the dashboard → **Global Config → Optimization Mode** (or
+via `POST /api/optimization`). See [`OPTIMIZATION.md`](OPTIMIZATION.md)
+for the full list of limits and the API.
+
+Quick summary of what changes when optimization is on:
+- Process-wide cap of **2 parallel jobs** (queues the rest).
+- aiohttp uses **4 conns / 2 per host** instead of 12 / 4.
+- Per-domain rate-limit floor of **0.6 s**.
+- Checkpoints save **every 10 s** (was 2.5 s) with smaller JSON files.
+- Playwright is gated to **1 browser at a time** and launches with a
+  lightweight Chromium argument set.
+- On Windows, the Python process is lowered to **BELOW_NORMAL** priority.
+- High-frequency SSE events are coalesced to keep the dashboard snappy.
+
 ## Added intelligence tools
 
 This build keeps the existing aggressive external resolver and adds:

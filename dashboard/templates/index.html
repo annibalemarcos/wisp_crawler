@@ -29,7 +29,9 @@
         <button data-view="patternlab"><span>🧪</span> Pattern Lab</button>
         <button data-view="blacklist"><span>🚫</span> Blacklist Dirs</button>
         <button data-view="configio"><span>📦</span> Config Import/Export</button>
+        <button data-view="globalconfig"><span>🌐</span> Global Config</button>
         <button data-view="discovery"><span>🧭</span> Directory Discovery</button>
+        <button data-view="exports"><span>EX</span> Export Center</button>
       </nav>
       <div class="sidebarFoot"><span class="dot"></span> API :5220<br><small id="clock"></small></div>
     </aside>
@@ -74,6 +76,8 @@
               <label class="toggle"><input type="checkbox" id="massiveBlacklist" checked><span>Use Blacklist Dirs</span><small>skip noisy dirs/regex</small></label>
               <label class="toggle"><input type="checkbox" id="massiveMaskedOutbound"><span>Follow Masked Outbound</span><small>reveal external destinations</small></label>
               <label class="toggle"><input type="checkbox" id="massiveMaskedAggressive"><span>Aggressive External Resolver</span><small>browser/JS fallback</small></label>
+              <label class="toggle"><input type="checkbox" id="massiveExternalThemeFilter"><span>Filter external by theme</span><small>check meta title/description/keywords before listing</small></label>
+              <label>Theme keywords<input id="massiveExternalThemeKeywords" placeholder="crypto, web3, exchange, wallet"></label>
               <label>External Limit<input id="massiveMaskedLimit" type="number" min="10" max="5000" value="300"></label>
             </div>
             <div class="actions stickyActions">
@@ -105,6 +109,8 @@
               <label class="toggle"><input type="checkbox" id="optSeeds" checked><span>Use Seeds</span><small>manual patterns</small></label>
               <label class="toggle"><input type="checkbox" id="optMaskedOutbound"><span>Follow Masked Outbound</span><small>resolve /away redirects and save external domains</small></label>
               <label class="toggle"><input type="checkbox" id="optMaskedAggressive"><span>Aggressive External Resolver</span><small>scan attributes/scripts + wait redirects harder</small></label>
+              <label class="toggle"><input type="checkbox" id="optExternalThemeFilter"><span>Filter external by theme</span><small>check meta title/description/keywords before listing</small></label>
+              <label>Theme keywords<input id="optExternalThemeKeywords" placeholder="crypto, web3, exchange, wallet"></label>
               <label class="toggle"><input type="checkbox" id="optPagination"><span>Auto Pagination</span><small>click next / DataTables pages and collect rows</small></label>
               <label class="toggle"><input type="checkbox" id="optBlacklist" checked><span>Use Blacklist Dirs</span><small>skip noisy/login/legal paths, supports regex</small></label>
               <label>External Limit<input id="optMaskedLimit" type="number" min="10" max="2000" value="500"></label>
@@ -212,11 +218,37 @@
         </div>
       </section>
 
+      <section id="exports" class="view">
+        <div class="grid two exportGrid">
+          <div class="card">
+            <div class="splitTitle"><h2>Export Center</h2><span class="pill" id="exportRowCount">0 rows</span></div>
+            <div class="hintBox">Filtro cirurgico: dataset, job, source, bucket external, motivo de skip, texto, formato e saída. Dá para exportar tabela completa, só URLs ou só domínios únicos.</div>
+            <div class="grid two compact">
+              <label>Dataset<select id="exportDataset"><option value="graph_nodes">Graph URLs / Results</option><option value="graph_edges">Graph Edges</option><option value="external">External Resolver</option><option value="skipped">Why Not Crawled</option><option value="live">Live Events</option><option value="jobs">Jobs</option><option value="patterns">Patterns</option><option value="seeds">Pattern Seeds</option></select></label>
+              <label>Job<select id="exportJobSelect"><option value="">All jobs</option></select></label>
+              <label>Format<select id="exportFormat"><option value="csv">CSV</option><option value="json">JSON</option><option value="md">Markdown</option><option value="txt">TXT</option><option value="html">HTML</option><option value="pdf">PDF</option></select></label>
+              <label>Output<select id="exportOutputMode"><option value="table">Tabela completa</option><option value="urls">Exportar só URL</option><option value="domains">Listar só domínios</option></select></label>
+              <label>Limit<input id="exportLimit" type="number" min="1" max="50000" value="5000"></label>
+              <label>Source<select id="exportSource"><option value="">all sources</option><option value="crawl">crawl</option><option value="pattern">pattern</option><option value="seed">seed</option><option value="inferred">inferred</option><option value="api">api</option><option value="external">external only</option></select></label>
+              <label>External bucket<select id="exportBucket"><option value="">all buckets</option><option value="candidates">candidates</option><option value="resolved">resolved</option><option value="failed">failed</option><option value="errors">errors</option></select></label>
+              <label>Skipped reason<select id="exportSkipReason"><option value="">all reasons</option></select></label>
+              <label>Search<input id="exportSearch" placeholder="filter text, URL, method, reason..."></label>
+            </div>
+            <div class="actions"><button class="primary" id="exportPreviewBtn">Preview</button><button id="exportDownloadBtn">Export Filtered</button></div>
+          </div>
+          <div class="card">
+            <div class="splitTitle"><h2>Preview</h2><span class="pill" id="exportDatasetLabel">empty</span></div>
+            <div id="exportStats" class="graphStats exportStats"></div>
+            <div id="exportPreview" class="tableWrap"><div class="empty">Choose filters and preview an export.</div></div>
+          </div>
+        </div>
+      </section>
+
       <section id="bulk" class="view">
         <div class="card">
           <div class="splitTitle"><h2>Bulk Run</h2><span class="pill">batch launcher</span></div>
           <textarea id="bulkUrls" placeholder="One URL per line"></textarea>
-          <div class="grid four compact"><label>Depth<select id="bulkDepth"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>6</option></select></label><label>Max Pages<select id="bulkPages"><option>30</option><option selected>100</option><option>200</option><option>500</option></select></label><label class="toggle inline"><input id="bulkPattern" type="checkbox" checked><span>Patterns</span></label><label class="toggle inline"><input id="bulkProbe" type="checkbox"><span>Soft Probe</span></label><label class="toggle inline"><input id="bulkMaskedOutbound" type="checkbox"><span>Follow Masked Outbound</span></label><label class="toggle inline"><input id="bulkMaskedAggressive" type="checkbox"><span>Aggressive Resolver</span></label><label class="toggle inline"><input id="bulkPagination" type="checkbox"><span>Auto Pagination</span></label><label class="toggle inline"><input id="bulkBlacklist" type="checkbox" checked><span>Use Blacklist</span></label><label>External Limit<input id="bulkMaskedLimit" type="number" min="10" max="2000" value="500"></label><label>Pagination Limit<input id="bulkPaginationLimit" type="number" min="1" max="250" value="25"></label></div>
+          <div class="grid four compact"><label>Depth<select id="bulkDepth"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>6</option></select></label><label>Max Pages<select id="bulkPages"><option>30</option><option selected>100</option><option>200</option><option>500</option></select></label><label class="toggle inline"><input id="bulkPattern" type="checkbox" checked><span>Patterns</span></label><label class="toggle inline"><input id="bulkProbe" type="checkbox"><span>Soft Probe</span></label><label class="toggle inline"><input id="bulkMaskedOutbound" type="checkbox"><span>Follow Masked Outbound</span></label><label class="toggle inline"><input id="bulkMaskedAggressive" type="checkbox"><span>Aggressive Resolver</span></label><label class="toggle inline"><input id="bulkExternalThemeFilter" type="checkbox"><span>Filter External Theme</span></label><label>Theme Keywords<input id="bulkExternalThemeKeywords" placeholder="crypto, web3, exchange"></label><label class="toggle inline"><input id="bulkPagination" type="checkbox"><span>Auto Pagination</span></label><label class="toggle inline"><input id="bulkBlacklist" type="checkbox" checked><span>Use Blacklist</span></label><label>External Limit<input id="bulkMaskedLimit" type="number" min="10" max="2000" value="500"></label><label>Pagination Limit<input id="bulkPaginationLimit" type="number" min="1" max="250" value="25"></label></div>
           <div class="actions"><button class="primary" id="bulkBtn">⚡ Launch Bulk Crawl</button><button onclick="document.getElementById('bulkUrls').value=''">Clear</button></div>
           <div id="bulkOut" class="cards"></div>
         </div>
@@ -256,17 +288,84 @@
           <div class="card heroCard">
             <div class="eyebrow">Config Import / Export</div>
             <h2>Um job inteiro em texto.</h2>
-            <p>Cole um .txt, .json ou .md com TYPE, URL, CONFIG e BLACKLIST. O WISP lê, mostra o preview e lança os jobs sem você clicar em quinze checkboxes.</p>
+            <p>Cole uma config única, cole um pacote combinado, ou importe arquivos .txt, .md e .json. O WISP lê, separa, mostra o preview e lança os jobs sem você clicar em quinze checkboxes.</p>
+            <label>Import files<input id="configFile" type="file" accept=".txt,.md,.json,text/plain,text/markdown,application/json" multiple></label>
+            <div class="actions"><button onclick="loadConfigFiles()">Import Selected Files</button><button onclick="document.getElementById('configFile').value='';document.getElementById('configText').value='';state.configParsedList=[];state.configParsed=null;renderConfigPreview(null)">Clear Import</button></div>
             <textarea id="configText" class="bigText" placeholder="========&#10;TYPE:&#10;Single Job&#10;========&#10;URL:&#10;https://cryptoatlas.eu/&#10;========&#10;URL ROOT-SEED:&#10;Root: https://cryptoatlas.eu/&#10;Seed_0: https://cryptoatlas.eu/crypto/service-providers&#10;========&#10;CONFIG&#10;========&#10;Depth: 2&#10;Max Pages: 100-200&#10;Pattern Expansion: on&#10;Route Inference: off&#10;Soft Probe: on&#10;Use Seeds: on&#10;Auto Pagination: off&#10;Pagination Limit: 20-50&#10;Follow Masked Outbound: on&#10;Aggressive External Resolver: on&#10;External Limit: 100-300&#10;========&#10;BLACKLIST&#10;========&#10;login&#10;blog&#10;news&#10;re:/(wp-content|wp-admin|wp-includes)(/|$)"></textarea>
             <div class="actions"><button class="primary" onclick="parseConfigText()">Parse / Preview</button><button onclick="loadConfigTemplate()">Load Template</button><button onclick="exportParsedConfig('txt')">Export TXT</button><button onclick="exportParsedConfig('json')">Export JSON</button></div>
           </div>
           <div class="card">
             <div class="splitTitle"><h2>Parsed Config</h2><span class="pill" id="configSummary">empty</span></div>
             <div class="hintBox">Ligue <b>Apply blacklist</b> para importar as regras da config para a Blacklist Dirs antes de criar os jobs.</div>
+            <label>Config in batch<select id="configSelect"><option value="">No parsed config</option></select></label>
             <label class="toggle inline"><input id="configApplyBlacklist" type="checkbox" checked><span>Apply blacklist rules</span></label>
             <div id="configPreview" class="tableWrap"><div class="empty">No config parsed yet.</div></div>
-            <div class="actions"><button class="primary big" onclick="launchParsedConfig()">🚀 Launch from Config</button><button onclick="fillRunFromConfig()">Fill Run Job Form</button><button onclick="fillMassiveFromConfig()">Fill Massive Job</button></div>
+            <div class="actions"><button class="primary big" onclick="launchParsedConfig()">🚀 Launch Selected</button><button onclick="launchAllParsedConfigs()">Launch All Parsed</button><button onclick="fillRunFromConfig()">Fill Run Job Form</button><button onclick="fillMassiveFromConfig()">Fill Massive Job</button></div>
           </div>
+        </div>
+      </section>
+
+      <section id="globalconfig" class="view">
+        <div class="card optimizationCard">
+          <div class="splitTitle">
+            <div><h2>Optimization Mode</h2><p class="muted">Controla quanto CPU/RAM/Rede o WISP pode usar. Ligado por padrão para o desktop respirar.</p></div>
+            <span class="pill" id="optStatePill">loading…</span>
+          </div>
+          <div class="optimizationToggleRow">
+            <label class="toggle big" data-testid="optimization-toggle">
+              <input type="checkbox" id="optimizationToggle">
+              <span>Optimization Enabled</span>
+              <small>limita jobs paralelos, conexões, Playwright, rate e checkpoints</small>
+            </label>
+            <button id="optResetBtn" data-testid="optimization-reset-btn">Reset to defaults</button>
+          </div>
+          <div class="optimizationGrid" id="optimizationGrid"></div>
+          <div class="hintBox" id="optHint">Quando ligado: máx <b>2 jobs</b> paralelos, <b>4 conexões</b> por job, rate <b>0.6s</b>, Playwright leve e prioridade BELOW_NORMAL no Windows.</div>
+          <div class="actions"><button class="primary" id="optSaveBtn" data-testid="optimization-save-btn">Save Optimization Settings</button></div>
+        </div>
+        <div class="grid two globalGrid">
+          <div class="card heroCard">
+            <div class="eyebrow">Global Config</div>
+            <h2>Backup do estado inteiro.</h2>
+            <p>Salve ou restaure jobs, graphs, checkpoints, patterns, seeds, services, blacklist e eventos. É o botão de snapshot do WISP: congelou o agora, volta nele depois.</p>
+            <div class="globalStatusGrid" id="globalStatusCards">
+              <div class="globalMetric"><b>...</b><small>loading</small></div>
+            </div>
+            <div id="globalStatus" class="hintBox">Loading global state...</div>
+            <div class="actions">
+              <button onclick="loadGlobalConfig()">Refresh Status</button>
+              <button class="primary" onclick="downloadGlobalBackup()">Download Full Backup</button>
+            </div>
+          </div>
+          <div class="card">
+            <div class="splitTitle">
+              <div><h2>Import Backup</h2><p class="muted">Importe um backup JSON baixado daqui, ou cole o conteúdo completo abaixo.</p></div>
+              <span class="pill">wisp-global-backup</span>
+            </div>
+            <label>Backup file<input id="globalBackupFile" type="file" accept=".json,application/json"></label>
+            <div class="actions"><button onclick="readGlobalBackupFile()">Load File Into Editor</button><button onclick="clearGlobalBackupEditor()">Clear Editor</button></div>
+            <textarea id="globalBackupText" class="bigText globalBackupText" placeholder='{"format":"wisp-global-backup","version":1,...}'></textarea>
+            <div class="grid two compact">
+              <label>Restore confirmation<input id="globalRestoreConfirm" placeholder="RESTORE WISP BACKUP" autocomplete="off"></label>
+              <label class="toggle inline"><input id="globalRestoreReplace" type="checkbox" checked><span>Replace current state</span></label>
+              <label class="toggle inline"><input id="globalRestoreEvents" type="checkbox" checked><span>Restore events.jsonl</span></label>
+            </div>
+            <div class="hintBox">Restore é bloqueado enquanto houver job ativo. Para confirmar, digite <b>RESTORE WISP BACKUP</b>.</div>
+            <div class="actions"><button class="primary big" onclick="restoreGlobalBackup()">Import / Restore Backup</button><button onclick="previewGlobalBackup()">Preview Backup</button></div>
+            <div id="globalImportPreview" class="tableWrap"><div class="empty">No backup loaded.</div></div>
+          </div>
+        </div>
+        <div class="card dangerZone">
+          <div class="splitTitle">
+            <div><h2>Danger Zone</h2><p class="muted">Limpa completamente o estado persistido em data/: jobs, resultados, graphs, checkpoints, patterns, seeds, services, blacklist e eventos.</p></div>
+            <span class="pill">irreversible without backup</span>
+          </div>
+          <div class="grid three compact">
+            <label>Clear confirmation<input id="globalClearConfirm" placeholder="DELETE WISP DATA" autocomplete="off"></label>
+            <label class="toggle inline"><input id="globalClearEvents" type="checkbox" checked><span>Delete events.jsonl</span></label>
+            <div class="actions noTop"><button class="danger big" onclick="clearGlobalData()">Clear All Data</button></div>
+          </div>
+          <div class="hintBox">Eu recomendo baixar um backup antes. Para limpar, digite <b>DELETE WISP DATA</b> e confirme o diálogo do navegador.</div>
         </div>
       </section>
 
@@ -300,6 +399,8 @@
               <label class="toggle"><input id="discRoutes" type="checkbox" checked><span>Route Inference</span><small>test siblings</small></label>
               <label class="toggle"><input id="discProbe" type="checkbox" checked><span>Soft Probe</span><small>validate likely routes</small></label>
               <label class="toggle"><input id="discAggressive" type="checkbox"><span>Aggressive external resolver</span><small>browser/JS fallback</small></label>
+              <label class="toggle"><input id="discExternalThemeFilter" type="checkbox"><span>Filter external by theme</span><small>check meta before listing external domains</small></label>
+              <label>Theme keywords<input id="discExternalThemeKeywords" placeholder="crypto, web3, exchange"></label>
             </div>
             <div class="actions"><button onclick="previewDirectoryDiscovery()">Preview Candidates</button><button class="primary big" onclick="runDirectoryDiscovery()">🧭 Launch Discovery Jobs</button><button onclick="exportDirectoryDiscovery('csv')">Export CSV</button><button onclick="exportDirectoryDiscovery('json')">Export JSON</button></div>
             <div id="discOut" class="tableWrap"><div class="empty">No candidates yet.</div></div>

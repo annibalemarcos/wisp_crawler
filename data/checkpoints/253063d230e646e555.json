@@ -1,0 +1,42 @@
+{
+  "id": "253063d230e646e555",
+  "job_id": "253063d230e646e555",
+  "url": "https://cryptodirectories.com/crypto-directory/companies",
+  "saved_at": "2026-06-09T06:58:15Z",
+  "saved_unix": 1780988295.6700728,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://cryptodirectories.com/crypto-directory/companies",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "30f3f52c8d40476d604f0383"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T06:58:15Z"
+}

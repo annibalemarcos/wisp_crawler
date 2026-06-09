@@ -1,0 +1,42 @@
+{
+  "id": "ba3609895067a248a2",
+  "job_id": "ba3609895067a248a2",
+  "url": "https://cexfinder.com/country",
+  "saved_at": "2026-06-09T06:59:01Z",
+  "saved_unix": 1780988341.5612404,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://cexfinder.com/country",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "fa17ff7dc19896e5ab36805d"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T06:59:01Z"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "87fef9a626ccc6dc4b",
+  "pattern": "contribute",
+  "kind": "contains",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

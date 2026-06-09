@@ -28,6 +28,8 @@ Pagination Limit: 30-50
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: exchanges, exchange, crypto exchanges, wallets, platforms, trading, brokers, services, directory, reviews
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://koinfetti.com/exchanges

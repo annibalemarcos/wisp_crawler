@@ -27,6 +27,8 @@ Pagination Limit: 30-50
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: companies, company, exchanges, wallets, services, providers, crypto, blockchain, web3, directory, listings
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptodirectories.com/crypto-directory/companies/

@@ -2,8 +2,9 @@
   "domain": "cryptoatlas.eu",
   "pattern": "/_next/static/{slug}/{slug}",
   "type": "path",
-  "confidence": 0.93,
+  "confidence": 0.97,
   "detected_values": [
+    "259-09368aadb4145572.js",
     "4bd1b696-704dc55da575ac8d.js",
     "684-03ad07be739f3fe6.js",
     "c20461ee2437a459.css",
@@ -27,6 +28,7 @@
     "bybit",
     "chunks",
     "css",
+    "259-09368aadb4145572.js",
     "4bd1b696-704dc55da575ac8d.js",
     "684-03ad07be739f3fe6.js",
     "c20461ee2437a459.css",
@@ -35,15 +37,15 @@
     "webpack-87e09e7e12c46b34.js"
   ],
   "examples": [
+    "/_next/static/chunks/259-09368aadb4145572.js",
     "/_next/static/chunks/4bd1b696-704dc55da575ac8d.js",
     "/_next/static/chunks/684-03ad07be739f3fe6.js",
     "/_next/static/chunks/main-app-3c11e02d385ccc19.js",
-    "/_next/static/chunks/polyfills-42372ed130431b0a.js",
-    "/_next/static/chunks/webpack-87e09e7e12c46b34.js"
+    "/_next/static/chunks/polyfills-42372ed130431b0a.js"
   ],
   "enabled": true,
   "active_values": [],
   "id": "f3f2bf755c74850f99",
-  "job_id": "992e1316cc4c519574",
-  "updated_at": "2026-06-03T14:36:53Z"
+  "job_id": "fe39a3a915f1f3618e",
+  "updated_at": "2026-06-09T07:03:17Z"
 }

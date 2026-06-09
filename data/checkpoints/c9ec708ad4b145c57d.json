@@ -1,0 +1,42 @@
+{
+  "id": "c9ec708ad4b145c57d",
+  "job_id": "c9ec708ad4b145c57d",
+  "url": "https://blockspot.io/coin",
+  "saved_at": "2026-06-09T06:59:55Z",
+  "saved_unix": 1780988395.1553285,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://blockspot.io/coin",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "0febcd9afb6c9298f054d6fe"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T06:59:55Z"
+}

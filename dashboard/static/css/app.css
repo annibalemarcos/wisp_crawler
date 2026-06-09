@@ -39,10 +39,53 @@ button.danger{border-color:rgba(255,107,107,.45);color:var(--red);background:rgb
 .configPreviewBox{padding:10px}.configPreviewBox h3{margin:14px 12px 8px}.configPreviewBox pre{max-height:220px}
 #discKeywords{min-height:240px}.configPreviewBox table{margin-bottom:14px}.sideNav{max-height:calc(100vh - 140px);overflow:auto}.sideNav button span{width:22px;text-align:center;display:inline-block}.configPreviewBox .urlCell,#discOut .urlCell{max-width:640px}
 
+/* Global Config */
+.globalGrid{align-items:start;grid-template-columns:minmax(360px,.9fr) minmax(420px,1.1fr)}
+.globalStatusGrid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin:16px 0}
+.globalMetric{min-width:0;border:1px solid var(--line);border-radius:14px;background:rgba(5,12,22,.42);padding:12px}
+.globalMetric b{display:block;font-size:20px;line-height:1.1;overflow-wrap:anywhere}
+.globalMetric small{display:block;margin-top:6px;color:var(--faint);text-transform:uppercase;letter-spacing:.1em;font-size:10px}
+.globalBackupText{min-height:300px;max-height:48vh}
+.dangerZone{border-color:rgba(255,95,126,.45);background:linear-gradient(180deg,rgba(42,14,27,.9),rgba(10,17,29,.96))}
+.dangerZone .pill{border-color:rgba(255,95,126,.45);color:var(--red);background:rgba(255,95,126,.08)}
+.noTop{margin-top:0;align-items:end}
+.compactTable{margin-top:10px}
+.compactTable table{min-width:520px}
+#globalImportPreview{max-height:360px;overflow:auto}
+#globalImportPreview table{min-width:620px}
+@media(max-width:1500px){.globalGrid{grid-template-columns:1fr}.globalStatusGrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:1150px){.globalStatusGrid{grid-template-columns:1fr}.globalBackupText{min-height:240px;max-height:none}.noTop{margin-top:12px}}
+
 /* Better data controls */
 .toolbar input,.toolbar select{min-height:38px}.toolbar select[id$='SortDir']{min-width:82px}.toolbar select[id$='Scope']{min-width:110px}.toolbar select[id$='Sort']{min-width:135px}.liveToolbar select[id$='Scope'],.liveToolbar select[id$='Sort']{min-width:120px}.tableWrap .empty{min-height:120px}
+
+/* Export Center */
+.exportGrid{align-items:start;grid-template-columns:minmax(340px,430px) minmax(0,1fr)}
+.exportStats{grid-template-columns:repeat(3,minmax(120px,1fr))}
+#exportPreview{max-height:calc(100vh - 250px);min-height:420px;overflow:auto}
+#exportPreview table{width:max-content;min-width:1480px;table-layout:auto}
+#exportPreview th,#exportPreview td{max-width:none;white-space:nowrap}
+#exportPreview .urlCell{min-width:280px;max-width:520px;white-space:normal;word-break:normal;overflow-wrap:break-word;line-height:1.35}
+#exportPreview td:not(.urlCell),#exportPreview th{min-width:86px}
+#exportPreview td:nth-child(1),#exportPreview th:nth-child(1){min-width:160px}
+#exportPreview td:nth-child(2),#exportPreview th:nth-child(2){min-width:320px}
+#exportSearch{min-width:0}
+@media(max-width:1500px){.exportGrid{grid-template-columns:1fr}#exportPreview{max-height:560px}}
+@media(max-width:1150px){.exportStats{grid-template-columns:1fr 1fr}}
 
 /* Sortable table headers */
 th.sortable{cursor:pointer;user-select:none;position:relative;color:#b9d8ff;transition:color .15s, background .15s}
 th.sortable:hover{color:var(--accent);background:rgba(98,244,255,.055)}
 th.sortable.active{color:var(--accent);text-shadow:0 0 14px rgba(98,244,255,.18)}
+
+/* Optimization Mode card */
+.optimizationCard{border-top:2px solid rgba(98,244,255,.35)}
+.optimizationToggleRow{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:14px 0 6px}
+.optimizationToggleRow .toggle.big{flex:1;min-width:260px;font-size:1.05em;padding:14px 16px;background:rgba(98,244,255,.05);border-radius:10px;border:1px solid rgba(98,244,255,.18)}
+.optimizationGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin:14px 0}
+.optimizationGrid .optField{display:flex;flex-direction:column;gap:4px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:8px 10px}
+.optimizationGrid .optField span{font-size:.82em;color:#9fb6c9;text-transform:uppercase;letter-spacing:.04em}
+.optimizationGrid .optField input{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:6px 8px;color:#e6f1ff;min-height:34px}
+.optimizationGrid .toggle.inline{padding:8px 10px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px}
+#optStatePill[data-state="on"]{background:rgba(98,244,255,.18);color:#62f4ff}
+#optStatePill[data-state="off"]{background:rgba(255,128,128,.18);color:#ff9090}

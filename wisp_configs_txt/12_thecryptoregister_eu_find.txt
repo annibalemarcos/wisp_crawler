@@ -28,6 +28,8 @@ Pagination Limit: 40-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: find, register, eu, companies, company, service providers, crypto asset, exchanges, providers, firms, directory, regulated
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://thecryptoregister.com/eu/find

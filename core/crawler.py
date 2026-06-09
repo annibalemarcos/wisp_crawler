@@ -21,6 +21,37 @@ from utils.urls import same_domain, domain_of, canonicalize
 from utils.rate_limit import DomainRateLimiter
 from storage.event_bus import event_bus
 from storage.blacklist_store import list_rules as list_blacklist_rules, explain_match as blacklist_explain_match
+from core import runtime_config
+
+# When optimization is on, only a handful of CrawlEngine instances are allowed
+# to spin up Playwright at once. Each successful acquire must be balanced by a
+# release in the engine's ``finally`` block.
+_PLAYWRIGHT_SEM = asyncio.Lock()  # placeholder; real semaphore is built per loop below
+import threading as _threading
+_PW_SLOT_LOCK = _threading.Condition()
+_PW_SLOT_BUSY = 0
+
+
+def _acquire_playwright_slot(timeout: float = 60.0) -> bool:
+    """Cross-thread cap on simultaneous Playwright browsers."""
+    global _PW_SLOT_BUSY
+    deadline = time.time() + max(1.0, timeout)
+    with _PW_SLOT_LOCK:
+        while True:
+            cap = max(1, int(runtime_config.get("playwright_max_jobs") or 1)) if runtime_config.is_optimized() else 10 ** 6
+            if _PW_SLOT_BUSY < cap:
+                _PW_SLOT_BUSY += 1
+                return True
+            if time.time() >= deadline:
+                return False
+            _PW_SLOT_LOCK.wait(timeout=min(2.0, max(0.1, deadline - time.time())))
+
+
+def _release_playwright_slot() -> None:
+    global _PW_SLOT_BUSY
+    with _PW_SLOT_LOCK:
+        _PW_SLOT_BUSY = max(0, _PW_SLOT_BUSY - 1)
+        _PW_SLOT_LOCK.notify_all()
 
 COMMON_ROUTES = ["/api/", "/api/v1/", "/api/search", "/api/directory", "/api/explore", "/api/categories", "/search", "/directory", "/explore", "/categories", "/market", "/markets", "/services", "/products", "/sitemap.xml", "/robots.txt"]
 
@@ -42,7 +73,13 @@ class CrawlEngine:
         self.dedupe = Dedupe()
         self.urls_seen = []
         self.patterns = []
-        self.rate = DomainRateLimiter(float(job.get("rate_delay", 0.25)))
+        # Optimization: bump the inter-request delay if the runtime config asks
+        # for it. The user's per-job ``rate_delay`` is honored if it's larger.
+        _opt = runtime_config.is_optimized()
+        raw_delay = float(job.get("rate_delay", 0.25))
+        if _opt:
+            raw_delay = max(raw_delay, float(runtime_config.get("rate_delay_seconds") or 0.6))
+        self.rate = DomainRateLimiter(raw_delay)
         self.use_playwright = bool(job.get("playwright", False)) and async_playwright is not None
         self.options = job.get("options", {})
         self.use_blacklist_dirs = bool(self.options.get("use_blacklist_dirs", True))
@@ -60,12 +97,19 @@ class CrawlEngine:
                     self.blacklist_rules.append({**row, "enabled": row.get("enabled", True)})
         self.follow_masked_outbound = bool(self.options.get("follow_masked_outbound", False))
         self.masked_outbound_aggressive = bool(self.options.get("masked_outbound_aggressive", False))
-        self.masked_outbound_limit = int(self.options.get("masked_outbound_limit", 500 if self.masked_outbound_aggressive else 120))
+        _default_limit = 500 if self.masked_outbound_aggressive else 120
+        self.masked_outbound_limit = int(self.options.get("masked_outbound_limit", _default_limit))
+        if _opt:
+            self.masked_outbound_limit = min(self.masked_outbound_limit, int(runtime_config.get("masked_outbound_limit_cap") or 120))
         self.masked_outbound_seen = 0
         self.masked_detail_boost = bool(self.options.get("masked_detail_boost", self.masked_outbound_aggressive))
         self.external_resolver_timeout = int(self.options.get("external_resolver_timeout", 22 if self.masked_outbound_aggressive else 15))
+        self.external_theme_filter = bool(self.options.get("external_theme_filter", False))
+        self.external_theme_keywords = self._split_theme_keywords(self.options.get("external_theme_keywords", []))
         self.auto_pagination = bool(self.options.get("auto_pagination", False))
         self.pagination_limit = int(self.options.get("pagination_limit", 25))
+        if _opt:
+            self.pagination_limit = min(self.pagination_limit, int(runtime_config.get("pagination_limit_cap") or 10))
         self.pagination_seen = set()
         self.pagination_report = {"pages": [], "links_found": 0, "errors": []}
         self.skipped = []
@@ -74,6 +118,8 @@ class CrawlEngine:
         self.last_checkpoint_at = 0.0
         self.pages_done = 0
         self.resume_from_checkpoint = bool(job.get("resume_from_checkpoint"))
+        # Track whether we hold a Playwright slot so we release exactly once.
+        self._playwright_slot_held = False
 
     def record_skip(self, url: str, reason: str, **meta):
         item = {"url": url, "reason": reason, **meta}
@@ -84,6 +130,121 @@ class CrawlEngine:
     def record_external(self, bucket: str, item: dict):
         if bucket in self.external_report and len(self.external_report[bucket]) < 5000:
             self.external_report[bucket].append(item)
+
+    THEME_STOPWORDS = {
+        "http", "https", "www", "com", "org", "net", "html", "htm", "index", "home", "new", "app", "page", "pages",
+        "site", "website", "directory", "directories", "company", "companies", "service", "services", "provider", "providers",
+        "about", "contact", "login", "signin", "signup", "terms", "privacy", "cookie", "cookies", "blog", "news", "press",
+        "and", "or", "the", "for", "with", "from", "your", "you", "our", "are", "was", "were", "this", "that", "have", "has"
+    }
+
+    def _split_theme_keywords(self, raw) -> list[str]:
+        if raw is None:
+            return []
+        if isinstance(raw, (list, tuple, set)):
+            parts = []
+            for item in raw:
+                parts.extend(self._split_theme_keywords(item))
+            return list(dict.fromkeys(parts))[:80]
+        text = str(raw)
+        parts = re.split(r"[,;\n\r\t|]+", text)
+        out = []
+        for p in parts:
+            k = re.sub(r"[^a-z0-9+#.\- ]+", " ", p.lower()).strip()
+            if not k:
+                continue
+            # Keep explicit multi-word phrases, but also normalize accidental double spaces.
+            k = re.sub(r"\s+", " ", k)
+            if len(k) >= 3 and k not in self.THEME_STOPWORDS and k not in out:
+                out.append(k)
+        return out[:80]
+
+    def _theme_tokens_from_text(self, text: str, limit: int = 80) -> list[str]:
+        text = re.sub(r"https?://\S+", " ", str(text or "").lower())
+        words = re.findall(r"[a-z][a-z0-9+#.\-]{2,}", text)
+        out = []
+        for w in words:
+            w = w.strip(".-_")
+            if len(w) < 3 or w in self.THEME_STOPWORDS or w.isdigit():
+                continue
+            if w not in out:
+                out.append(w)
+            if len(out) >= limit:
+                break
+        return out
+
+    def _meta_text_from_html(self, html: str) -> str:
+        if not html:
+            return ""
+        try:
+            soup = BeautifulSoup(html[:250000], "html.parser")
+            chunks = []
+            if soup.title and soup.title.string:
+                chunks.append(soup.title.string)
+            for tag in soup.find_all("meta"):
+                key = (tag.get("name") or tag.get("property") or "").lower()
+                if key in {"description", "keywords", "og:title", "og:description", "twitter:title", "twitter:description"}:
+                    chunks.append(tag.get("content") or "")
+            return " ".join(chunks)
+        except Exception:
+            return ""
+
+    def _auto_theme_keywords(self, parent_url: str = "", parent_html: str = "") -> list[str]:
+        seeds = []
+        seeds.extend(self.external_theme_keywords)
+        seeds.extend(self._theme_tokens_from_text(self.root))
+        seeds.extend(self._theme_tokens_from_text(parent_url))
+        seeds.extend(self._theme_tokens_from_text(self._meta_text_from_html(parent_html), limit=80))
+        return list(dict.fromkeys([x for x in seeds if x and x not in self.THEME_STOPWORDS]))[:80]
+
+    async def _fetch_external_meta(self, session, target_url: str, referer: str = "") -> dict:
+        try:
+            p = urlparse(target_url)
+            if not p.scheme or not p.netloc:
+                return {"ok": False, "error": "invalid_external_url"}
+            homepage = f"{p.scheme}://{p.netloc}/"
+            headers = {"User-Agent": "Mozilla/5.0 WISP External Theme Filter", "Accept": "text/html,application/xhtml+xml"}
+            if referer:
+                headers["Referer"] = referer
+            # Meta check should be cheap: homepage first because the export is domain-oriented.
+            for u in list(dict.fromkeys([homepage, target_url])):
+                try:
+                    await self.rate.wait(domain_of(u))
+                    async with session.get(u, timeout=min(max(5, self.external_resolver_timeout), 15), allow_redirects=True, headers=headers) as r:
+                        ctype = r.headers.get("content-type", "")
+                        if r.status >= 400 or "html" not in ctype.lower():
+                            continue
+                        html = await r.text(errors="ignore")
+                        meta_text = self._meta_text_from_html(html)
+                        return {"ok": True, "url": str(r.url), "status": r.status, "content_type": ctype, "meta_text": meta_text[:2000]}
+                except Exception:
+                    continue
+            return {"ok": False, "error": "meta_unavailable"}
+        except Exception as e:
+            return {"ok": False, "error": str(e)}
+
+    async def _external_matches_theme(self, session, target_url: str, parent_url: str, parent_html: str) -> dict:
+        if not self.external_theme_filter:
+            return {"ok": True, "reason": "filter_off", "keywords": []}
+        keywords = self._auto_theme_keywords(parent_url, parent_html)
+        if not keywords:
+            # Sem palavra-chave, não bloqueia tudo no escuro. Máquina burra com confiança alta é incêndio.
+            return {"ok": True, "reason": "no_theme_keywords", "keywords": []}
+        meta = await self._fetch_external_meta(session, target_url, referer=parent_url)
+        if not meta.get("ok"):
+            return {"ok": False, "reason": meta.get("error") or "meta_unavailable", "keywords": keywords, "meta": meta}
+        hay = (meta.get("meta_text") or "").lower()
+        matched = []
+        for k in keywords:
+            kk = str(k).lower().strip()
+            if not kk:
+                continue
+            if " " in kk:
+                if kk in hay:
+                    matched.append(k)
+            elif re.search(rf"(?<![a-z0-9]){re.escape(kk)}(?![a-z0-9])", hay):
+                matched.append(k)
+        return {"ok": bool(matched), "reason": "matched" if matched else "theme_mismatch", "keywords": keywords, "matched": matched[:20], "meta": meta}
 
     def _now_iso(self):
         return time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
@@ -170,13 +331,21 @@ class CrawlEngine:
 
     def _save_checkpoint(self, pq, pages: int, current_url: str | None = None, force: bool = False):
         now = time.time()
-        if not force and now - self.last_checkpoint_at < 2.5:
+        # Optimization keeps the disk quiet by widening the minimum interval
+        # between checkpoints. The user can still force a save (e.g. on errors).
+        _opt = runtime_config.is_optimized()
+        min_interval = float(runtime_config.get("checkpoint_min_interval") or 10.0) if _opt else 2.5
+        if not force and now - self.last_checkpoint_at < min_interval:
             return
         self.last_checkpoint_at = now
         queue_rows = []
+        max_queue = int(runtime_config.get("checkpoint_max_queue") or 2000) if _opt else 10000
+        max_urls_seen = int(runtime_config.get("checkpoint_max_urls_seen") or 4000) if _opt else 20000
+        max_dedupe = int(runtime_config.get("checkpoint_max_dedupe") or 10000) if _opt else 50000
+        max_skipped = int(runtime_config.get("checkpoint_max_skipped") or 1000) if _opt else 3000
         try:
             # Store enough queue to restart sensibly without creating giant JSON files.
-            for prio, depth, url, source, parent in sorted(list(pq))[:10000]:
+            for prio, depth, url, source, parent in sorted(list(pq))[:max_queue]:
                 queue_rows.append({"priority": prio, "depth": depth, "url": url, "source": source, "parent": parent})
         except Exception:
             queue_rows = []
@@ -190,11 +359,11 @@ class CrawlEngine:
             "current_url": current_url,
             "queue": queue_rows,
             "queue_size": len(queue_rows),
-            "urls_seen": self.urls_seen[-20000:],
-            "dedupe_seen": list(self.dedupe.seen)[-50000:],
+            "urls_seen": self.urls_seen[-max_urls_seen:],
+            "dedupe_seen": list(self.dedupe.seen)[-max_dedupe:],
             "graph": self.graph.as_dict(),
             "patterns": self.patterns[-1000:],
-            "skipped": self.skipped[-3000:],
+            "skipped": self.skipped[-max_skipped:],
             "external_report": self.external_report,
             "pagination_report": self.pagination_report,
             "masked_outbound_seen": self.masked_outbound_seen,
@@ -379,6 +548,12 @@ class CrawlEngine:
                 self.record_skip(l, "masked_external_not_resolved", from_url=parent_url)
                 continue
             target = resolved["url"]
+            theme_check = await self._external_matches_theme(session, target, parent_url, html or "")
+            if not theme_check.get("ok"):
+                self.record_skip(target, "external_theme_mismatch", from_url=parent_url, reason=theme_check.get("reason"), matched=theme_check.get("matched", []), keywords=(theme_check.get("keywords") or [])[:20])
+                self.record_external("failed", {"url": target, "from": parent_url, "reason": "external_theme_mismatch", "theme_reason": theme_check.get("reason"), "keywords": (theme_check.get("keywords") or [])[:20], "meta_url": (theme_check.get("meta") or {}).get("url")})
+                event_bus.publish("external_theme_filtered", {"job_id": self.job.get("id"), "from": parent_url, "target": target, "reason": theme_check.get("reason"), "keywords": (theme_check.get("keywords") or [])[:20]})
+                continue
             if not self.dedupe.add(target):
                 continue
             resolved_count += 1
@@ -393,9 +568,11 @@ class CrawlEngine:
                 parent=parent_url,
                 masked_from=resolved.get("masked_url"),
                 resolver_method=resolved.get("method", "redirect"),
-                content_type=resolved.get("content_type", "")
+                content_type=resolved.get("content_type", ""),
+                theme_matched_keywords=theme_check.get("matched", []),
+                theme_filter=bool(self.external_theme_filter)
             )
-            self.record_external("resolved", {"from": parent_url, "masked_url": resolved.get("masked_url"), "target": target, "status": resolved.get("status", 0), "method": resolved.get("method")})
+            self.record_external("resolved", {"from": parent_url, "masked_url": resolved.get("masked_url"), "target": target, "status": resolved.get("status", 0), "method": resolved.get("method"), "theme_matched_keywords": theme_check.get("matched", []), "theme_filter": bool(self.external_theme_filter)})
             event_bus.publish("masked_outbound_resolved", {"from": parent_url, "masked_url": resolved.get("masked_url"), "target": target, "status": resolved.get("status", 0), "method": resolved.get("method")})
             event_bus.publish("node_discovered", node)
             edge = self.graph.add_edge(parent_url, target, source="external", relationship="masked_redirect")
@@ -591,13 +768,60 @@ class CrawlEngine:
         return score
 
     async def run(self):
-        conn = aiohttp.TCPConnector(limit_per_host=int(self.job.get("concurrency_per_domain", 4)), limit=int(self.job.get("concurrency", 12)))
+        _opt = runtime_config.is_optimized()
+        if _opt:
+            conn_limit = int(runtime_config.get("aiohttp_total_conns") or 4)
+            conn_per_host = int(runtime_config.get("aiohttp_per_host") or 2)
+        else:
+            conn_limit = int(self.job.get("concurrency", 12))
+            conn_per_host = int(self.job.get("concurrency_per_domain", 4))
+        # Hard cap to avoid pathological values coming from old configs.
+        conn_limit = max(1, min(conn_limit, 64))
+        conn_per_host = max(1, min(conn_per_host, conn_limit))
+        conn = aiohttp.TCPConnector(
+            limit_per_host=conn_per_host,
+            limit=conn_limit,
+            ttl_dns_cache=300,
+            enable_cleanup_closed=True,
+        )
         async with aiohttp.ClientSession(connector=conn) as session:
             browser = None
             pw = None
-            if self.use_playwright or ((self.masked_outbound_aggressive or self.auto_pagination) and async_playwright is not None):
-                pw = await async_playwright().start()
-                browser = await pw.chromium.launch(headless=True)
+            wants_browser = self.use_playwright or ((self.masked_outbound_aggressive or self.auto_pagination) and async_playwright is not None)
+            if wants_browser:
+                # Hold a global Playwright slot so we don't spawn N chromiums in parallel.
+                if not _acquire_playwright_slot(timeout=120.0):
+                    event_bus.publish("playwright_slot_timeout", {"job_id": self.job.get("id")})
+                else:
+                    self._playwright_slot_held = True
+                    try:
+                        pw = await async_playwright().start()
+                        launch_args = []
+                        if _opt and runtime_config.get("playwright_lightweight_args"):
+                            launch_args = [
+                                "--no-sandbox",
+                                "--disable-dev-shm-usage",
+                                "--disable-gpu",
+                                "--disable-extensions",
+                                "--disable-background-networking",
+                                "--disable-background-timer-throttling",
+                                "--disable-renderer-backgrounding",
+                                "--disable-features=TranslateUI,site-per-process",
+                                "--mute-audio",
+                                "--no-first-run",
+                                "--no-default-browser-check",
+                            ]
+                        browser = await pw.chromium.launch(headless=True, args=launch_args)
+                    except Exception as e:
+                        event_bus.publish("playwright_launch_failed", {"job_id": self.job.get("id"), "error": str(e)})
+                        browser = None
+                        try:
+                            if pw: await pw.stop()
+                        except Exception:
+                            pass
+                        pw = None
+                        _release_playwright_slot()
+                        self._playwright_slot_held = False
             try:
                 pq = []
                 pages = 0
@@ -692,8 +916,15 @@ class CrawlEngine:
                 self._save_checkpoint(pq, pages, force=True)
                 return {"graph": self.graph.as_dict(), "patterns": self.patterns, "pages": pages, "urls": self.urls_seen, "skipped": self.skipped, "external_report": self.external_report, "pagination_report": self.pagination_report, "checkpoint": checkpoint_store.get(self.job.get("id"))}
             finally:
-                if browser: await browser.close()
-                if pw: await pw.stop()
+                if browser:
+                    try: await browser.close()
+                    except Exception: pass
+                if pw:
+                    try: await pw.stop()
+                    except Exception: pass
+                if self._playwright_slot_held:
+                    _release_playwright_slot()
+                    self._playwright_slot_held = False
 
     async def apply_patterns(self, session, patterns, pq, depth, parent):
         await self._control_gate(parent)

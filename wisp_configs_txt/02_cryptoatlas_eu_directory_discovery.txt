@@ -28,6 +28,8 @@ Pagination Limit: 40-60
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 300-600
+Filter External By Theme: on
+Theme Keywords: service-providers, providers, swaps, exchanges, wallets, cards, payments, crypto, fiat, banks, companies, services, directory
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptoatlas.eu/crypto/service-providers

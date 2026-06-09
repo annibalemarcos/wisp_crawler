@@ -1,0 +1,42 @@
+{
+  "id": "0483e6d73ef95491b7",
+  "job_id": "0483e6d73ef95491b7",
+  "url": "https://cexfinder.com/exchange",
+  "saved_at": "2026-06-09T06:58:40Z",
+  "saved_unix": 1780988320.881676,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://cexfinder.com/exchange",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "490a1bb7d25d8c20f0b65aac"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T06:58:40Z"
+}

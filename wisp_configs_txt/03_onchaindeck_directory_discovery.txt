@@ -28,6 +28,8 @@ Pagination Limit: 20-40
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-250
+Filter External By Theme: on
+Theme Keywords: projects, companies, protocols, ecosystem, directory, deck, chains, defi, infra, infrastructure, tools, wallets, exchanges
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://onchaindeck.cc/

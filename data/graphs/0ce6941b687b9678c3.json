@@ -1,0 +1,97 @@
+{
+  "id": "0ce6941b687b9678c3",
+  "nodes": [
+    {
+      "id": "254a8eaf859268f173",
+      "url": "https://cryptoindustry.com/",
+      "depth": 0,
+      "type": "exchange/crypto service hub",
+      "source": "seed",
+      "pattern_match": false,
+      "status_code": 0,
+      "confidence": 0.65,
+      "content_type": "",
+      "discovered_at": "2026-06-09T07:03:54Z"
+    }
+  ],
+  "edges": [],
+  "job_id": "0ce6941b687b9678c3",
+  "skipped": [
+    {
+      "url": "https://cryptoindustry.com/",
+      "reason": "fetch_empty_or_error",
+      "status": 0,
+      "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://cryptoindustry.com/\", waiting until \"networkidle\"\n",
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "checkpoint": {
+    "id": "0ce6941b687b9678c3",
+    "job_id": "0ce6941b687b9678c3",
+    "url": "https://cryptoindustry.com/",
+    "saved_at": "2026-06-09T07:03:54Z",
+    "saved_unix": 1780988634.9568672,
+    "pages": 1,
+    "current_url": null,
+    "queue": [],
+    "queue_size": 0,
+    "urls_seen": [
+      "https://cryptoindustry.com/"
+    ],
+    "dedupe_seen": [
+      "6515ff9792e0c79aabd77366"
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "254a8eaf859268f173",
+          "url": "https://cryptoindustry.com/",
+          "depth": 0,
+          "type": "exchange/crypto service hub",
+          "source": "seed",
+          "pattern_match": false,
+          "status_code": 0,
+          "confidence": 0.65,
+          "content_type": "",
+          "discovered_at": "2026-06-09T07:03:54Z"
+        }
+      ],
+      "edges": []
+    },
+    "patterns": [],
+    "skipped": [
+      {
+        "url": "https://cryptoindustry.com/",
+        "reason": "fetch_empty_or_error",
+        "status": 0,
+        "error": "Page.goto: Timeout 18000ms exceeded.\nCall log:\n  - navigating to \"https://cryptoindustry.com/\", waiting until \"networkidle\"\n",
+        "depth": 0
+      }
+    ],
+    "external_report": {
+      "candidates": [],
+      "resolved": [],
+      "failed": [],
+      "errors": []
+    },
+    "pagination_report": {
+      "pages": [],
+      "links_found": 0,
+      "errors": []
+    },
+    "masked_outbound_seen": 0,
+    "updated_at": "2026-06-09T07:03:54Z"
+  },
+  "updated_at": "2026-06-09T07:03:56Z"
+}

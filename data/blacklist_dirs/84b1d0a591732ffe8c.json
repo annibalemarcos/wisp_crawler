@@ -1,0 +1,11 @@
+{
+  "id": "84b1d0a591732ffe8c",
+  "pattern": "/(blog|news|docs|documentation|careers|jobs|press)(/|$)",
+  "kind": "regex",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

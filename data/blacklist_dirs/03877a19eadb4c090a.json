@@ -1,0 +1,11 @@
+{
+  "id": "03877a19eadb4c090a",
+  "pattern": "/(login|signin|signup|register|account|dashboard|portfolio)(/|$|\\?)",
+  "kind": "regex",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

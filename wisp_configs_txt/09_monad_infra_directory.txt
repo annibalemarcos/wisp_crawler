@@ -28,6 +28,8 @@ Pagination Limit: 20-40
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: infra, infrastructure, ecosystem, builders, apps, dapps, tools, protocols, partners, validators, rpc, explorer, wallets, defi
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://www.monad.xyz/infra

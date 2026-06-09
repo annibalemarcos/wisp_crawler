@@ -1,0 +1,42 @@
+{
+  "id": "8d0d72f3ec1ef21fe1",
+  "job_id": "8d0d72f3ec1ef21fe1",
+  "url": "https://blockspot.io/wallet",
+  "saved_at": "2026-06-09T07:03:19Z",
+  "saved_unix": 1780988599.0847907,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://blockspot.io/wallet",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "34e618b77884e00f03640e5e"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T07:03:19Z"
+}

@@ -7,8 +7,6 @@
     "OG.jpg",
     "categories",
     "directory",
-    "market",
-    "markets",
     "services"
   ],
   "suggested_values": [
@@ -26,20 +24,17 @@
     "OG.jpg",
     "categories",
     "directory",
-    "market",
-    "markets",
     "services"
   ],
   "examples": [
     "/categories",
     "/directory",
-    "/market",
-    "/markets",
-    "/services"
+    "/services",
+    "/OG.jpg"
   ],
   "enabled": true,
   "active_values": [],
   "id": "56a644a39a6e7c54c3",
-  "job_id": "992e1316cc4c519574",
-  "updated_at": "2026-06-03T14:36:53Z"
+  "job_id": "fe39a3a915f1f3618e",
+  "updated_at": "2026-06-09T07:03:17Z"
 }

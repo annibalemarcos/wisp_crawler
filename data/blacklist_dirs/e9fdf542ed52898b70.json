@@ -1,0 +1,11 @@
+{
+  "id": "e9fdf542ed52898b70",
+  "pattern": "/token(s)?/[^/]+$",
+  "kind": "regex",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

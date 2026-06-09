@@ -1,0 +1,11 @@
+{
+  "id": "0565097706908a7fbf",
+  "pattern": "brand",
+  "kind": "contains",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

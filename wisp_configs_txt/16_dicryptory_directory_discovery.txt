@@ -29,6 +29,8 @@ Pagination Limit: 30-60
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: directory, exchanges, companies, projects, wallets, services, providers, crypto, blockchain, web3, defi, tools, apps
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://dicryptory.com/

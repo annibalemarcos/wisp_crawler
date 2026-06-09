@@ -1,0 +1,57 @@
+{
+  "id": "fdeed8a391c529ad8a",
+  "job_id": "fdeed8a391c529ad8a",
+  "url": "https://thebanks.eu/crypto",
+  "saved_at": "2026-06-09T07:05:56Z",
+  "saved_unix": 1780988756.5839424,
+  "pages": 1,
+  "current_url": null,
+  "queue": [],
+  "queue_size": 0,
+  "urls_seen": [
+    "https://thebanks.eu/crypto"
+  ],
+  "dedupe_seen": [
+    "c9c3bad32274418d88302857"
+  ],
+  "graph": {
+    "nodes": [
+      {
+        "id": "2aae495357e68fe51d",
+        "url": "https://thebanks.eu/crypto",
+        "depth": 0,
+        "type": "exchange/crypto service hub",
+        "source": "seed",
+        "pattern_match": false,
+        "status_code": 403,
+        "confidence": 0.65,
+        "content_type": "text/html; charset=UTF-8",
+        "discovered_at": "2026-06-09T07:05:56Z"
+      }
+    ],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [
+    {
+      "url": "https://thebanks.eu/crypto",
+      "reason": "fetch_empty_or_error",
+      "status": 403,
+      "error": null,
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T07:05:56Z"
+}

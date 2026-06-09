@@ -29,6 +29,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: rankings, dapps, defi, exchanges, games, nft, marketplaces, chains, protocols, category, apps, projects
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://dappradar.com/rankings

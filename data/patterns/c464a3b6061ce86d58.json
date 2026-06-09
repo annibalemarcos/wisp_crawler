@@ -1,0 +1,38 @@
+{
+  "domain": "constellation.directory",
+  "pattern": "/{slug}/{slug}",
+  "type": "path",
+  "confidence": 0.61,
+  "detected_values": [
+    "%3E%3C",
+    "assets",
+    "index-CerRbqxP.css",
+    "svg%3E"
+  ],
+  "suggested_values": [
+    "ai",
+    "fintech",
+    "crypto",
+    "health",
+    "openai",
+    "stripe",
+    "binance",
+    "kraken",
+    "coinbase",
+    "okx",
+    "bybit",
+    "%3E%3C",
+    "assets",
+    "index-CerRbqxP.css",
+    "svg%3E"
+  ],
+  "examples": [
+    "/%3E%3C/svg%3E",
+    "/assets/index-CerRbqxP.css"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "c464a3b6061ce86d58",
+  "job_id": "a7df6f4bd55052311a",
+  "updated_at": "2026-06-09T07:08:43Z"
+}

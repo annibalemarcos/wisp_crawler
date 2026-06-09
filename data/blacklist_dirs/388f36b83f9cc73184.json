@@ -1,0 +1,11 @@
+{
+  "id": "388f36b83f9cc73184",
+  "pattern": "careers",
+  "kind": "contains",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

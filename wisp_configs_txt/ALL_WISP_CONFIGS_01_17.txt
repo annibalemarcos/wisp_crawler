@@ -29,6 +29,8 @@ Pagination Limit: 30-50
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: companies, company, exchanges, wallets, services, providers, crypto, blockchain, web3, directory, listings
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptodirectories.com/crypto-directory/companies/
@@ -101,6 +103,8 @@ Pagination Limit: 40-60
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 300-600
+Filter External By Theme: on
+Theme Keywords: service-providers, providers, swaps, exchanges, wallets, cards, payments, crypto, fiat, banks, companies, services, directory
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptoatlas.eu/crypto/service-providers
@@ -177,6 +181,8 @@ Pagination Limit: 20-40
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-250
+Filter External By Theme: on
+Theme Keywords: projects, companies, protocols, ecosystem, directory, deck, chains, defi, infra, infrastructure, tools, wallets, exchanges
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://onchaindeck.cc/
@@ -246,6 +252,8 @@ Pagination Limit: 50-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: companies, company, products, coins, people, exchanges, wallets, services, blockchain, crypto, directory, profiles
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptoslate.com/companies/
@@ -321,6 +329,8 @@ Pagination Limit: 40-60
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: exchange, exchanges, decentralized, dex, wallet, wallets, coin, coins, crypto, providers, services, directory
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://blockspot.io/exchange/
@@ -394,6 +404,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: rankings, dapps, defi, exchanges, games, nft, marketplaces, chains, protocols, category, apps, projects
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://dappradar.com/rankings
@@ -468,6 +480,8 @@ Pagination Limit: 30-50
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: exchanges, exchange, crypto exchanges, wallets, platforms, trading, brokers, services, directory, reviews
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://koinfetti.com/exchanges
@@ -541,6 +555,8 @@ Pagination Limit: 30-60
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: directory, dapps, exchanges, wallets, tools, services, defi, nft, security, analytics, developer, infrastructure, api, explorer
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://etherscan.io/directory/
@@ -617,6 +633,8 @@ Pagination Limit: 20-40
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 150-300
+Filter External By Theme: on
+Theme Keywords: infra, infrastructure, ecosystem, builders, apps, dapps, tools, protocols, partners, validators, rpc, explorer, wallets, defi
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://www.monad.xyz/infra
@@ -688,6 +706,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 300-600
+Filter External By Theme: on
+Theme Keywords: country, countries, exchange, exchanges, crypto exchange, cex, trading, platforms, broker, brokers, directory, reviews
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cexfinder.com/country/
@@ -763,6 +783,8 @@ Pagination Limit: 30-60
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: service, services, exchange, exchanges, no kyc, kyc, wallets, swaps, privacy, crypto, directory, list, providers
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://kycnot.me/
@@ -832,6 +854,8 @@ Pagination Limit: 40-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: find, register, eu, companies, company, service providers, crypto asset, exchanges, providers, firms, directory, regulated
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://thecryptoregister.com/eu/find
@@ -903,6 +927,8 @@ Pagination Limit: 40-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: directory, ecosystem, companies, projects, protocols, tools, apps, services, infrastructure, crypto, web3, startups, platforms
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://constellation.directory/
@@ -976,6 +1002,8 @@ Pagination Limit: 40-70
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: directory, projects, companies, ecosystem, exchanges, wallets, defi, nft, tools, infrastructure, services, providers, crypto, web3
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://blockza.io/directory
@@ -1048,6 +1076,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: companies, company, categories, exchanges, wallets, services, providers, infrastructure, mining, defi, nft, crypto, blockchain, web3, directory
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cryptoindustry.com/companies
@@ -1125,6 +1155,8 @@ Pagination Limit: 30-60
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: directory, exchanges, companies, projects, wallets, services, providers, crypto, blockchain, web3, defi, tools, apps
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://dicryptory.com/
@@ -1198,6 +1230,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: crypto, service-providers, service providers, exchanges, wallets, banks, financial institutions, emis, payment institutions, providers, companies, directory
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://thebanks.eu/crypto/service-providers

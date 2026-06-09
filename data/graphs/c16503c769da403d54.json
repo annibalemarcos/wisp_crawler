@@ -1,0 +1,97 @@
+{
+  "id": "c16503c769da403d54",
+  "nodes": [
+    {
+      "id": "d2af3f37907f050cc9",
+      "url": "https://etherscan.io/d",
+      "depth": 0,
+      "type": "database/listing site",
+      "source": "seed",
+      "pattern_match": false,
+      "status_code": 403,
+      "confidence": 0.65,
+      "content_type": "text/html; charset=UTF-8",
+      "discovered_at": "2026-06-09T07:02:24Z"
+    }
+  ],
+  "edges": [],
+  "job_id": "c16503c769da403d54",
+  "skipped": [
+    {
+      "url": "https://etherscan.io/d",
+      "reason": "fetch_empty_or_error",
+      "status": 403,
+      "error": null,
+      "depth": 0
+    }
+  ],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "checkpoint": {
+    "id": "c16503c769da403d54",
+    "job_id": "c16503c769da403d54",
+    "url": "https://etherscan.io/d",
+    "saved_at": "2026-06-09T07:02:24Z",
+    "saved_unix": 1780988544.1207104,
+    "pages": 1,
+    "current_url": null,
+    "queue": [],
+    "queue_size": 0,
+    "urls_seen": [
+      "https://etherscan.io/d"
+    ],
+    "dedupe_seen": [
+      "eeb39cc48680ac501b604416"
+    ],
+    "graph": {
+      "nodes": [
+        {
+          "id": "d2af3f37907f050cc9",
+          "url": "https://etherscan.io/d",
+          "depth": 0,
+          "type": "database/listing site",
+          "source": "seed",
+          "pattern_match": false,
+          "status_code": 403,
+          "confidence": 0.65,
+          "content_type": "text/html; charset=UTF-8",
+          "discovered_at": "2026-06-09T07:02:24Z"
+        }
+      ],
+      "edges": []
+    },
+    "patterns": [],
+    "skipped": [
+      {
+        "url": "https://etherscan.io/d",
+        "reason": "fetch_empty_or_error",
+        "status": 403,
+        "error": null,
+        "depth": 0
+      }
+    ],
+    "external_report": {
+      "candidates": [],
+      "resolved": [],
+      "failed": [],
+      "errors": []
+    },
+    "pagination_report": {
+      "pages": [],
+      "links_found": 0,
+      "errors": []
+    },
+    "masked_outbound_seen": 0,
+    "updated_at": "2026-06-09T07:02:24Z"
+  },
+  "updated_at": "2026-06-09T07:02:24Z"
+}

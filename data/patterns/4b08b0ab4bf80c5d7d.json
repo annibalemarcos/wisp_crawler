@@ -1,0 +1,53 @@
+{
+  "domain": "constellation.directory",
+  "pattern": "/{category}",
+  "type": "path",
+  "confidence": 0.97,
+  "detected_values": [
+    "ai",
+    "categories",
+    "companies",
+    "directory",
+    "explore",
+    "manifest.json",
+    "products",
+    "search",
+    "services",
+    "sitemap.xml"
+  ],
+  "suggested_values": [
+    "exchange",
+    "swap",
+    "bridge",
+    "dex",
+    "aggregator",
+    "finance",
+    "ai",
+    "health",
+    "crypto",
+    "troca",
+    "intercambio",
+    "agregador",
+    "categories",
+    "companies",
+    "directory",
+    "explore",
+    "manifest.json",
+    "products",
+    "search",
+    "services",
+    "sitemap.xml"
+  ],
+  "examples": [
+    "/companies",
+    "/categories",
+    "/directory",
+    "/explore",
+    "/manifest.json"
+  ],
+  "enabled": true,
+  "active_values": [],
+  "id": "4b08b0ab4bf80c5d7d",
+  "job_id": "a7df6f4bd55052311a",
+  "updated_at": "2026-06-09T07:08:43Z"
+}

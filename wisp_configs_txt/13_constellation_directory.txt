@@ -29,6 +29,8 @@ Pagination Limit: 40-80
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: directory, ecosystem, companies, projects, protocols, tools, apps, services, infrastructure, crypto, web3, startups, platforms
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://constellation.directory/

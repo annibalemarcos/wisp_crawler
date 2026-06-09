@@ -1,0 +1,11 @@
+{
+  "id": "110bfc5fcc70ae8b0d",
+  "pattern": "market",
+  "kind": "contains",
+  "enabled": true,
+  "note": "imported from config",
+  "scope": "global",
+  "built_in": false,
+  "created_at": "2026-06-09T06:57:51Z",
+  "updated_at": "2026-06-09T06:57:51Z"
+}

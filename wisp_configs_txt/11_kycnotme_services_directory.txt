@@ -29,6 +29,8 @@ Pagination Limit: 30-60
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 250-500
+Filter External By Theme: on
+Theme Keywords: service, services, exchange, exchanges, no kyc, kyc, wallets, swaps, privacy, crypto, directory, list, providers
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://kycnot.me/

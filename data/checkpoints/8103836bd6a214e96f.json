@@ -1,0 +1,42 @@
+{
+  "id": "8103836bd6a214e96f",
+  "job_id": "8103836bd6a214e96f",
+  "url": "https://cryptodirectories.com/directory",
+  "saved_at": "2026-06-09T07:00:09Z",
+  "saved_unix": 1780988409.1184313,
+  "pages": 0,
+  "current_url": null,
+  "queue": [
+    {
+      "priority": 0,
+      "depth": 0,
+      "url": "https://cryptodirectories.com/directory",
+      "source": "seed",
+      "parent": ""
+    }
+  ],
+  "queue_size": 1,
+  "urls_seen": [],
+  "dedupe_seen": [
+    "463b1e77c2ff42e565d9807b"
+  ],
+  "graph": {
+    "nodes": [],
+    "edges": []
+  },
+  "patterns": [],
+  "skipped": [],
+  "external_report": {
+    "candidates": [],
+    "resolved": [],
+    "failed": [],
+    "errors": []
+  },
+  "pagination_report": {
+    "pages": [],
+    "links_found": 0,
+    "errors": []
+  },
+  "masked_outbound_seen": 0,
+  "updated_at": "2026-06-09T07:00:09Z"
+}

@@ -28,6 +28,8 @@ Pagination Limit: 50-100
 Follow Masked Outbound: on
 Aggressive External Resolver: on
 External Limit: 300-600
+Filter External By Theme: on
+Theme Keywords: country, countries, exchange, exchanges, crypto exchange, cex, trading, platforms, broker, brokers, directory, reviews
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://cexfinder.com/country/

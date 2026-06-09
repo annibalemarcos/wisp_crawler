@@ -29,6 +29,8 @@ Pagination Limit: 40-70
 Follow Masked Outbound: on
 Aggressive External Resolver: off
 External Limit: 200-400
+Filter External By Theme: on
+Theme Keywords: directory, projects, companies, ecosystem, exchanges, wallets, defi, nft, tools, infrastructure, services, providers, crypto, web3
 Use Blacklist Dirs: on
 Directory Discovery Mode: on
 Known Directory URL: https://blockza.io/directory
